@@ -35,10 +35,10 @@ Question.init(
         type: DataTypes.STRING,
         allowNull: true
       },
-      user_id: {
+      poll_id: {
         type: DataTypes.STRING,
         references: {
-            model: 'User',
+            model: 'Poll',
             key: 'id'
         }
       }

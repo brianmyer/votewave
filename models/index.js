@@ -1,5 +1,7 @@
+const Question = require('./Question');
 const User = require('./User');
-const Poll = require('./User');
+const Poll = require('./Poll');
+const Response = require('./Response')
 
 User.hasMany(Poll, {
   foreignKey: 'user_id',
@@ -10,4 +12,20 @@ Poll.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, Poll };
+Poll.hasMany(Question, {
+  foreignKey: 'poll_id'
+})
+
+Question.belongsTo(Poll, {
+  foreignKey: 'poll_id'
+})
+
+Question.hasMany(Response, {
+  foreignKey: 'question_id'
+})
+
+Response.belongsTo(Question, {
+  foreignKey: 'question_id'
+})
+
+module.exports = { User, Poll, Response, Question};

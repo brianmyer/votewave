@@ -18,19 +18,6 @@ Poll.init(
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    question: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    userInput: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

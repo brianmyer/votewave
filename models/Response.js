@@ -23,7 +23,6 @@ Response.init(
             key: 'id'
         }
     }
-
   },
   {
         sequelize,
