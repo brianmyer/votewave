@@ -1,0 +1,29 @@
+  <div >
+    <h2>Welcome back, {{name}}!</h2>
+  </div>
+
+<div >
+
+  {{#if polls.length}}
+  <div >
+    <h3>Your polls:</h3>
+
+    {{#each polls as |poll|}}
+    <div >
+      <div >
+        <h4><a href="/project/{{poll.id}}">{{poll.name}}</a></h4>
+      </div>
+      <div >
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<a href="/create-poll">
+<button>Create a new poll</button>
+</a>
+
+{{!-- <script src="./js/profile.js"></script> --}}
