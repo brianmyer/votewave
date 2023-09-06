@@ -1,13 +1,33 @@
+const Question = require('./Question');
 const User = require('./User');
-const Project = require('./Project');
+const Poll = require('./Poll');
+const Response = require('./Response')
 
-User.hasMany(Project, {
+User.hasMany(Poll, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-Project.belongsTo(User, {
+Poll.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-module.exports = { User, Project };
+Poll.hasMany(Question, {
+  foreignKey: 'poll_id',
+  onDelete: 'CASCADE'
+})
+
+Question.belongsTo(Poll, {
+  foreignKey: 'poll_id'
+})
+
+Question.hasMany(Response, {
+  foreignKey: 'question_id',
+  onDelete: 'CASCADE'
+})
+
+Response.belongsTo(Question, {
+  foreignKey: 'question_id'
+})
+
+module.exports = { User, Poll, Response, Question};
