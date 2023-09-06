@@ -1,0 +1,36 @@
+<div class="text-center">
+  <h2>{{name}}</h2>
+  <div>
+    <h3>Create a poll:</h3>
+
+    <form class="form new-blogPost-form">
+      <div class="form-group">
+        <label for="poll-name">Poll name:</label>
+        <input class="form-input" type="text" id="poll-name" name="poll-name"
+          placeholder="What is the name of your poll?" />
+      </div>
+
+      <div class="form-group">
+        <label for="poll-desc">Poll description:</label>
+        <textarea class="form-input" id="poll-desc" name="poll-desc"
+          placeholder="Tell us a little bit about your poll"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="poll-question">Question:</label>
+        <input class="form-input" id="poll-question" name="poll-question" placeholder="Question" />
+      </div>
+
+      <div class="form-group">
+        <ul class="form-group" id="responses">
+
+        </ul>
+        <p id="add-response">&#43;</p>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+</div>
