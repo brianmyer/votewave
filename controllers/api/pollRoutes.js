@@ -2,9 +2,24 @@ const router = require('express').Router();
 const { Poll, Question, Response, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+//get ALL polls (not specific to user)
+// router.get('/', async (req, res) => {
+//   try {
+//     const pollData = await Poll.findAll({
+//       include: [{ model: Question,  include: [{model: Response}]}   
+//       ]});
+//     res.status(200).json(pollData)
+//   } 
+//   catch (err) {
+//   res.status(500).json(err);
+//   }
+// });
+
+
 router.get('/', async (req, res) => {
   try {
-    const pollData = await Poll.findAll({
+    const pollData = await Poll.findAll( { 
+      where: {user_id: req.session.user_id},
       include: [{ model: Question,  include: [{model: Response}]}   
       ]});
     res.status(200).json(pollData)
@@ -13,6 +28,33 @@ router.get('/', async (req, res) => {
   res.status(500).json(err);
   }
 });
+
+router.get('/:id', async (req, res) => {
+  try {
+    const pollData = await Poll.findOne( { 
+      where: {user_id: req.session.user_id, id: req.params.id},
+      include: [{ model: Question,  include: [{model: Response}]}   
+      ]});
+    res.status(200).json(pollData)
+  } 
+  catch (err) {
+  res.status(500).json(err);
+  }
+});
+
+
+//get one poll
+// router.get('/', async (req, res) => {
+//   try {
+//     const pollData = await Poll.findByPk(req.params.id, {
+//       include: [{ model: Question,  include: [{model: Response}]}   
+//       ]});
+//     res.status(200).json(pollData)
+//   } 
+//   catch (err) {
+//   res.status(500).json(err);
+//   }
+// });
 
 router.post('/',  async (req, res) => {
   try {
