@@ -533,3 +533,8 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
