@@ -29,7 +29,9 @@ const sess = {
   })
 };
 
-app.use(session(sess));
+//turned off session info 
+
+// app.use(session(sess)); 
 
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
@@ -40,6 +42,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
+
+//commented out force sync
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
