@@ -1,21 +1,35 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Poll, Question, Response, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+    const pollData = await Poll.findAll({
+      include: [{ model: Question,  include: [{model: Response}]}   
+      ]});
+    res.status(200).json(pollData)
+  } 
+  catch (err) {
+  res.status(500).json(err);
+  }
+});
 
-    res.status(200).json(newProject);
+router.post('/',  async (req, res) => {
+  try {
+    const newPoll = await Poll.create(req.body);
+
+    res.status(200).json(newPoll);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+
+
+
+
+
+router.delete('/:id', async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
