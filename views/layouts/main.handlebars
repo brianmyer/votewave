@@ -13,19 +13,22 @@
 <body>
 
   <header>
+
     <h1 class="text-5xl">
       <a href="/">Poll</a>
     </h1>
+
     <nav>
       {{#if logged_in}}
-      <a href="/homepage">Homepage</a> |        
-      <a href="/profile">Profile</a> |
+      <a href="/homepage">Homepage</a>
+      <a href="/profile">Profile</a>
       <button class="no-button" id="logout">Logout</button>
       {{else}}
-      <a href="/homepage">Homepage</a> |        
+      <a href="/homepage">Homepage</a>
       <a href="/login">login</a>
       {{/if}}
     </nav>
+
   </header>
 
   <main>
@@ -33,12 +36,13 @@
   </main>
 
   <footer>
+
     <p>&#169 2023 Cameron Hack, Brian Myer & Christian Dziedzic</p>
+
   </footer>
-  
+
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
-
 </html>
