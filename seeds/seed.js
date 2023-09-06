@@ -14,12 +14,23 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  const poll = await Poll.bulkCreate(pollData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+  const question = await Question.bulkCreate(questionData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+
+  const response = await Response.bulkCreate(responseData, {
+    individualHooks: true,
+    returning: true,
+  });
+
+
 
   process.exit(0);
 };

@@ -13,7 +13,8 @@ Poll.belongsTo(User, {
 });
 
 Poll.hasMany(Question, {
-  foreignKey: 'poll_id'
+  foreignKey: 'poll_id',
+  onDelete: 'CASCADE'
 })
 
 Question.belongsTo(Poll, {
@@ -21,7 +22,8 @@ Question.belongsTo(Poll, {
 })
 
 Question.hasMany(Response, {
-  foreignKey: 'question_id'
+  foreignKey: 'question_id',
+  onDelete: 'CASCADE'
 })
 
 Response.belongsTo(Question, {

@@ -4,7 +4,9 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const pollData = await Poll.findAll();
+    const pollData = await Poll.findAll({
+      include: [{ model: Question,  include: [{model: Response}]}   
+      ]});
     res.status(200).json(pollData)
   } 
   catch (err) {

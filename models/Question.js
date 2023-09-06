@@ -36,9 +36,9 @@ Question.init(
         allowNull: true
       },
       poll_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
-            model: 'Poll',
+            model: 'poll',
             key: 'id'
         }
       }
