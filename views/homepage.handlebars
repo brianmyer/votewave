@@ -1,0 +1,12 @@
+<h2>Latest Polls</h2>
+
+{{#each polls as |poll| }}
+<a href="/polls/{{poll.id}}">
+  <section>
+    <h3>{{poll.title}}</h3>
+    <div id="poll-{{poll.id}}"></div>
+    <p>Poll created by {{poll.user.name}} </p>
+  </section>
+</a>
+{{/each}}
+<!-- Limit to 4 or 5? -->

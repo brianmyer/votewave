@@ -11,29 +11,29 @@
 </head>
 
 <body>
-
-  <header>
-
-    <h1><a href="/">Poll</a></h1>
-
-    <nav>
-      {{#if logged_in}}
-      <a href="/profile">profile</a> |
-      <button id="logout">logout</button>
-      {{else}}
-      <a href="/login">login</a>
-      {{/if}}
-    </nav>
-
-  </header>
-
-  <main>
-    {{{ body }}}
-  </main>
-  <footer>
-    <p>&#169 2023 Cameron Hack, Brian Myer & Chris Dziedzic</p>
-  </footer>
-
+  <div >
+    <header >
+      <h1>
+        <a href="/">PollHub</a>
+      </h1>
+      <nav>
+        {{#if logged_in}}
+        <a href="/homepage">Homepage</a> |        
+        <a href="/profile">Profile</a> |
+        <button class="no-button" id="logout">Logout</button>
+        {{else}}
+        <a href="/homepage">Homepage</a> |        
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
