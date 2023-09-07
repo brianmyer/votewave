@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Poll, User } = require('../models');
+const { Poll, User, Question, Response } = require('../models');
 const withAuth = require('../utils/auth');
 
 
@@ -90,6 +90,23 @@ router.get('/homepage', async (req, res) => {
     res.render('homepage', { 
     });
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/response/:id', async (req, res) => {
+  try {
+    const pollData = await Poll.findOne( { 
+      where: {id: req.params.id},
+      include: [{ model: Question }]}
+      );
+      const poll = pollData.get({ plain: true });
+      console.log(poll)
+    res.render('response', { 
+      ...poll
+    });
+  } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
