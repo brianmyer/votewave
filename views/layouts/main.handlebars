@@ -14,17 +14,15 @@
 
   <header class="bg-gray-800">
 
-    <h1 class="text-5xl p-4 text-blue-100">
-      <a href="/">Poll</a>
-    </h1>
+    <h1 class="text-8xl text-center p-8 text-blue-100"><a href="/">Poll</a></h1>
 
-    <nav>
-      <li class="text-white"><a href="/create-poll">Create Poll</a></li>
+    <nav class="container mx-auto w-1/2 flex justify-around">
+      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
       {{#if logged_in}}
-      <li class="text-white"><a href="/profile">Profile</a></li>
+      <button class="text-white"><a href="/profile">Profile</a></button>
       <button class="no-button" id="logout">Logout</button>
       {{else}}
-      <li class="text-white"><a href="/login">login</a></li>
+      <button class="text-white"><a href="/login">Login</a></button>
       {{/if}}
     </nav>
 
