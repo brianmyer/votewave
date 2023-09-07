@@ -2,20 +2,9 @@ const router = require('express').Router();
 const { Poll, Question, Response, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-//get ALL polls (not specific to user)
-// router.get('/', async (req, res) => {
-//   try {
-//     const pollData = await Poll.findAll({
-//       include: [{ model: Question,  include: [{model: Response}]}   
-//       ]});
-//     res.status(200).json(pollData)
-//   } 
-//   catch (err) {
-//   res.status(500).json(err);
-//   }
-// });
 
 
+//Retrieve user-specific polls
 router.get('/', async (req, res) => {
   try {
     const pollData = await Poll.findAll( { 
@@ -28,7 +17,7 @@ router.get('/', async (req, res) => {
   res.status(500).json(err);
   }
 });
-
+//Retrieve ONE user-specific poll
 router.get('/:id', async (req, res) => {
   try {
     const pollData = await Poll.findOne( { 
@@ -41,32 +30,20 @@ router.get('/:id', async (req, res) => {
   res.status(500).json(err);
   }
 });
-
-
-//get one poll
-// router.get('/', async (req, res) => {
-//   try {
-//     const pollData = await Poll.findByPk(req.params.id, {
-//       include: [{ model: Question,  include: [{model: Response}]}   
-//       ]});
-//     res.status(200).json(pollData)
-//   } 
-//   catch (err) {
-//   res.status(500).json(err);
-//   }
-// });
-
+//create new poll
 router.post('/',  async (req, res) => {
   try {
-    const newPoll = await Poll.create(req.body);
+    const newPoll = await Poll.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
     res.status(200).json(newPoll);
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
-
+//retrieve public poll (to respond)
 
 
 
