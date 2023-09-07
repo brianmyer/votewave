@@ -1,23 +1,19 @@
-  <div>
-    <h2>Signup</h2>
+<div class="container 2xl:w-1/5 xl:w-1/4 l:w-1/4 p-4 m-8 mx-auto bg-gray-500 rounded-3xl">
 
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-    <a href="/login">Already have an account?</a>
-  </div>
+  <h2 class="text-3xl text-center m-2">Signup</h2>
+
+  <form class="form signup-form flex flex-col justify-center items-center">
+
+    <input class="text-center p-2 m-2 focus:outline-none rounded-lg" type="text" id="name-signup" placeholder="name" />
+
+    <input class="text-center p-2 m-2 focus:outline-none rounded-lg" type="text" id="email-signup" placeholder="email" />
+
+    <input class="text-center p-2 m-2 focus:outline-none rounded-lg" type="password" id="password-signup" placeholder="password" />
+
+    <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" type="submit">signup</button>
+
+  </form>
+
+  <h3 class="text-center m-2"><a href="/login">Already have an account?</a></h3>
+
 </div>

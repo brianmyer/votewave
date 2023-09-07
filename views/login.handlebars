@@ -1,21 +1,19 @@
-<div>
-  <div>
-    <h2>Login</h2>
+<div class="container 2xl:w-1/5 xl:w-1/4 l:w-1/4 p-4 m-8 mx-auto bg-gray-500 rounded-3xl">
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">username:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <a href="/signup">Don't have an account?</a>
+  <h2 class="text-3xl text-center m-2">Login</h2>
+
+  <form class="form login-form flex flex-col justify-center items-center">
+
+    <input class="form-input text-center p-2 m-2 focus:outline-none rounded-lg" type="text" id="email-login" placeholder="email" />
+
+    <input class="form-input text-center p-2 m-2 focus:outline-none rounded-lg" type="password" id="password-login" placeholder="password" />
+
+    <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" type="submit">login</button>
+
+  </form>
+
+  <h3 class="text-center m-2"><a href="/signup">Don't have an account?</a></h3>
+
+</div>
 
 <script src="./js/login.js"></script>

@@ -1,12 +1,14 @@
-<h2>Latest Polls</h2>
+<div class="container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 rounded-3xl">
+  <h2 class="text-3xl text-center m-2">Latest Polls</h2>
 
-{{#each polls as |poll| }}
-<a href="/results/{{poll.id}}">
-  <section>
-    <h3>{{poll.name}}</h3>
-    <div id="poll-{{poll.id}}"></div>
-    <p>Poll created by {{poll.user.name}} </p>
-  </section>
-</a>
-{{/each}}
-<!-- Limit to 4 or 5? -->
+  {{#each polls as |poll| }}
+  <a href="/results/{{poll.id}}">
+    <section>
+      <h3>{{poll.name}}</h3>
+      <div id="poll-{{poll.id}}"></div>
+      <p>Poll created by {{poll.user.name}} </p>
+    </section>
+  </a>
+  {{/each}}
+  <!-- Limit to 4 or 5? -->
+</div>
