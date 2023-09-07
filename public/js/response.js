@@ -11,7 +11,7 @@ async function responseHandler (event) {
           });
 
     if (response.ok) {
-            console.log('thank you for your response')
+            alert('thank you for your response')
     }
     else {
         console.log('nope.avi')
