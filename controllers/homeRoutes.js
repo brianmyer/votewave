@@ -73,6 +73,27 @@ router.get('/create-poll', async (req, res) => {
   }
 });
 
+router.get('/create-responses', async (req, res) => {
+  try {
+
+    res.render('create-responses', { 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/homepage', async (req, res) => {
+  try {
+
+    res.render('homepage', { 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/response/:id', async (req, res) => {
   try {
     const pollData = await Poll.findOne( { 

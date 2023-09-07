@@ -1,0 +1,27 @@
+<div class="text-center">
+  <h2>{{name}}</h2>
+  <div>
+    <h3>Create the poll question:</h3>
+
+    <form class="form new-question-form">
+
+      <div class="form-group">
+        <label for="question-text">Question:</label>
+        <input class="form-input" id="question-text" name="question-text" placeholder="Question text" />
+      </div>
+
+      <div class="form-group" id="responses">
+        <p>Please add up to 5 possible responses:</p>
+        <input type="text" name="response1" id="response1" placeholder="Response">
+        <input type="text" name="response2" id="response2" placeholder="Response">
+        <input type="text" name="response3" id="response3" placeholder="Response">
+        <input type="text" name="response4" id="response4" placeholder="Response">
+        <input type="text" name="response5" id="response5" placeholder="Response">
+      </div>
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>
+
+<script src="/js/create-responses.js"></script>
