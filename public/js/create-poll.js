@@ -17,7 +17,11 @@ async function newFormHandler (event) {
       if (response.ok) {
         document.location.replace(`/create-responses`);
       } else {
-        alert('Failed to create poll');
+      document.getElementById('error-modal').classList.remove('hidden');
+      
+      setTimeout(() => {
+        document.getElementById('error-modal').classList.add('hidden');
+      }, 3000)
       }
     }
   };

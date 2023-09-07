@@ -1,30 +1,33 @@
-<div class="text-center">
-    <h2>{{name}}</h2>
-    
-     <div>
-                <p>{{questions.[0].text}}</p>
-            </div>
-    <div class = "response-group" >
+<div class="md:container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 md:rounded-3xl">
+
+    <h2 class="text-3xl text-center m-2">{{name}}</h2>
+
+    <div>
+        <p class="text-xl text-center m-2">{{questions.[0].text}}</p>
+    </div>
+
+    <div class="response-group flex flex-col justify-center items-center" >
             <div>
-                <button data-index="1" data-question='{{questions.[0].id}}'>{{questions.[0].response1}}</button>
+                <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-index="1" data-question='{{questions.[0].id}}'>{{questions.[0].response1}}</button>
             </div>
 
             <div>
-                <button data-index="2" data-question='{{questions.[0].id}}'>{{questions.[0].response2}}</button>
+                <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-index="2" data-question='{{questions.[0].id}}'>{{questions.[0].response2}}</button>
             </div>
 
             <div>
-                <button data-index="3" data-question='{{questions.[0].id}}'>{{questions.[0].response3}}</button>
+                <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-index="3" data-question='{{questions.[0].id}}'>{{questions.[0].response3}}</button>
             </div>
 
             <div>
-                <button data-index="4" data-question='{{questions.[0].id}}'>{{questions.[0].response4}}</button>
+                <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-index="4" data-question='{{questions.[0].id}}'>{{questions.[0].response4}}</button>
             </div>
 
             <div>
-                <button data-index="5" data-question='{{questions.[0].id}}'>{{questions.[0].response5}}</button>
+                <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-index="5" data-question='{{questions.[0].id}}'>{{questions.[0].response5}}</button>
             </div>
     </div>
+
 </div>
 
 <script src="/js/response.js"></script>
