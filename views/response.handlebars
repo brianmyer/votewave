@@ -1,34 +1,30 @@
 <div class="text-center">
-    <h2>{{poll.name}}</h2>
-    <div>
-        <h3>Please submit your answer below</h3>
-
-            <div >
-                <p>{{poll.question.text}}</p>
+    <h2>{{name}}</h2>
+    
+     <div>
+                <p>{{questions.[0].text}}</p>
+            </div>
+    <div class = "response-group" >
+            <div>
+                <button data-index="1" data-question='{{questions.[0].id}}'>{{questions.[0].response1}}</button>
             </div>
 
-            <div class="response-group">
-                <p data-index="1">{{poll.question.response1}}</p>
+            <div>
+                <button data-index="2" data-question='{{questions.[0].id}}'>{{questions.[0].response2}}</button>
             </div>
 
-            <div class="response-group">
-                <p data-index="2">{{poll.question.response2}}</p>
+            <div>
+                <button data-index="3" data-question='{{questions.[0].id}}'>{{questions.[0].response3}}</button>
             </div>
 
-            <div class="response-group">
-                <p data-index="3">{{poll.question.response3}}</p>
+            <div>
+                <button data-index="4" data-question='{{questions.[0].id}}'>{{questions.[0].response4}}</button>
             </div>
 
-            <div class="response-group">
-                <p data-index="4">{{poll.question.response4}}</p>
-            </div>
-
-            <div class="response-group">
-                <p data-index="5">{{poll.question.response5}}</p>
-            </div>
-
-            <div class="response-group">
-                <button type="submit" class="btn btn-primary">Submit Answer</button>
+            <div>
+                <button data-index="5" data-question='{{questions.[0].id}}'>{{questions.[0].response5}}</button>
             </div>
     </div>
 </div>
+
+<script src="/js/response.js"></script>
