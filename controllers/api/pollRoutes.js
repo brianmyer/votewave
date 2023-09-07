@@ -42,20 +42,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
-//get one poll
-// router.get('/', async (req, res) => {
-//   try {
-//     const pollData = await Poll.findByPk(req.params.id, {
-//       include: [{ model: Question,  include: [{model: Response}]}   
-//       ]});
-//     res.status(200).json(pollData)
-//   } 
-//   catch (err) {
-//   res.status(500).json(err);
-//   }
-// });
-
 router.post('/',  async (req, res) => {
   try {
     const newPoll = await Poll.create(req.body);
