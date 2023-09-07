@@ -28,6 +28,37 @@
             </div>
     </div>
 
+<div class="text-center response-group">    
+ {{#each questions as |question|}}
+
+    
+     <div>
+                <p>{{question.text}}</p>
+   
+            </div>
+    <div  >
+            <div>
+                <button data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>
+            </div>
+
+            <div>
+                <button data-index="2" data-question='{{question.id}}'>{{question.response2}}</button>
+            </div>
+
+            <div>
+                <button data-index="3" data-question='{{question.id}}'>{{question.response3}}</button>
+            </div>
+
+            <div>
+                <button data-index="4" data-question='{{question.id}}'>{{question.response4}}</button>
+            </div>
+
+            <div>
+                <button data-index="5" data-question='{{question.id}}'>{{question.response5}}</button>
+            </div>
+    </div>
+{{/each}}
 </div>
+
 
 <script src="/js/response.js"></script>

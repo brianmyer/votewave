@@ -1,7 +1,6 @@
 async function responseHandler (event) {
     let indexNumber = event.target.getAttribute('data-index')
     let question_id = event.target.getAttribute('data-question')
-    console.log(indexNumber, question_id, 'hi')
     if (indexNumber && question_id) {
         const response = await fetch(`/api/responses`, {
             method: 'POST',

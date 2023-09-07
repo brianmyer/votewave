@@ -15,9 +15,13 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/',  async (req, res) => {
+router.post('/:id',  async (req, res) => {
     try {
-      const newQuestion = await Question.create(req.body);
+      const newQuestion = await Question.create({
+        ...req.body,
+        user_id: req.session.user_id,
+        poll_id: req.params.id,
+      });
   
       res.status(200).json(newQuestion);
     } catch (err) {

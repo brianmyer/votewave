@@ -1,4 +1,3 @@
-
 async function newFormHandler (event) {
     event.preventDefault();
   
@@ -15,7 +14,9 @@ async function newFormHandler (event) {
       });
   
       if (response.ok) {
-        document.location.replace(`/create-responses`);
+        let poll = await response.json()
+
+        document.location.replace(`/create-responses/${poll.id}`);
       } else {
       document.getElementById('error-modal').classList.remove('hidden');
       
