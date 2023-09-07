@@ -1,30 +1,34 @@
-<div class="text-center">
-    <h2>{{name}}</h2>
+<div class="text-center response-group">    
+ {{#each questions as |question|}}
+
     
      <div>
-                <p>{{questions.[0].text}}</p>
+                <p>{{question.text}}</p>
+   
             </div>
-    <div class = "response-group" >
+    <div  >
             <div>
-                <button data-index="1" data-question='{{questions.[0].id}}'>{{questions.[0].response1}}</button>
-            </div>
-
-            <div>
-                <button data-index="2" data-question='{{questions.[0].id}}'>{{questions.[0].response2}}</button>
+                <button data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>
             </div>
 
             <div>
-                <button data-index="3" data-question='{{questions.[0].id}}'>{{questions.[0].response3}}</button>
+                <button data-index="2" data-question='{{question.id}}'>{{question.response2}}</button>
             </div>
 
             <div>
-                <button data-index="4" data-question='{{questions.[0].id}}'>{{questions.[0].response4}}</button>
+                <button data-index="3" data-question='{{question.id}}'>{{question.response3}}</button>
             </div>
 
             <div>
-                <button data-index="5" data-question='{{questions.[0].id}}'>{{questions.[0].response5}}</button>
+                <button data-index="4" data-question='{{question.id}}'>{{question.response4}}</button>
+            </div>
+
+            <div>
+                <button data-index="5" data-question='{{question.id}}'>{{question.response5}}</button>
             </div>
     </div>
+{{/each}}
 </div>
+
 
 <script src="/js/response.js"></script>
