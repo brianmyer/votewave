@@ -58,7 +58,10 @@ router.get('/:id', async (req, res) => {
 
 router.post('/',  async (req, res) => {
   try {
-    const newPoll = await Poll.create(req.body);
+    const newPoll = await Poll.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
     res.status(200).json(newPoll);
   } catch (err) {

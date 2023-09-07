@@ -4,7 +4,6 @@ async function newFormHandler (event) {
   
     const name = document.querySelector('#poll-name').value.trim();
     const description = document.querySelector('#poll-desc').value.trim();
-    // const question = document.querySelector('#poll-question').value.trim();
 
     if (name && description) {
       const response = await fetch(`/api/polls`, {
@@ -16,25 +15,14 @@ async function newFormHandler (event) {
       });
   
       if (response.ok) {
-        document.location.replace(`/dashboard`);
+        document.location.replace(`/create-responses`);
       } else {
         alert('Failed to create poll');
       }
     }
   };
-
-  const newResponseOption = (event) => {
-    if (event.target.matches('#add-response')) {
-        const newResponse = document.createElement('input');
-        responses.appendChild(newResponse);
-    
-    }
-    }
     
   
-//   let responses = document.querySelector('#responses');
-//   responses.addEventListener('click', newResponseOption);
-
   let newPollForm = document.querySelector('.new-poll-form');
-  newPollForm.addEventListener('submit', newFormHandler());
+  newPollForm.addEventListener('submit', newFormHandler);
 
