@@ -14,7 +14,7 @@
 
   <header class="bg-gray-800">
 
-    <h1 class="text-5xl p-4">
+    <h1 class="text-5xl p-4 text-blue-100">
       <a href="/">Poll</a>
     </h1>
 
@@ -24,13 +24,15 @@
       <a href="/profile">Profile</a>
       <button class="no-button" id="logout">Logout</button>
       {{else}}
-      <a href="/homepage">Homepage</a>
-      <a href="/login">login</a>
+      <li class="text-white"><a href="/create-poll">Create Poll</a></li>
+      <li class="text-white"><a href="/homepage">Homepage</a></li>
+      <li class="text-white"><a href="/login">login</a></li>
       {{/if}}
     </nav>
 
   </header>
 
+{{!-- main content --}}
   <main>
     {{{ body }}}
   </main>
