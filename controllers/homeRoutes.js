@@ -28,6 +28,51 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/dashboard', async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Poll }],
+    });
+
+    const user = userData.get({ plain: true });
+    const pollData = await Poll.findAll({
+      
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
+
+    const polls = pollData.map((poll) => poll.get({ plain: true }));
+
+    res.render('dashboard', {
+      ...user,
+      polls,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/create-poll', async (req, res) => {
+  try {
+
+    res.render('create-poll', { 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // router.get('/project/:id', async (req, res) => {
 //   try {
 //     const projectData = await Project.findByPk(req.params.id, {
