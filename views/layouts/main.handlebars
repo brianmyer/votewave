@@ -16,7 +16,7 @@
 
     <h1 class="text-8xl text-center p-8 text-blue-100"><a href="/">Poll</a></h1>
 
-    <nav class="container mx-auto w-1/2 flex justify-around">
+    <nav class="hidden md:flex justify-around container mx-auto w-1/2">
       <button class="text-white"><a href="/create-poll">Create Poll</a></button>
       {{#if logged_in}}
       <button class="text-white"><a href="/profile">Profile</a></button>
@@ -28,7 +28,25 @@
 
   </header>
 
-{{!-- main content --}}
+
+  <nav class="fixed bottom-0 left-0 right-0 h-32 w-full bg-gray-800 md:hidden flex justify-evenly">
+
+    <div class="">
+      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
+    </div>
+
+    <div class="">
+      <button class="text-white"><a href="/">Home</a></button>
+    </div>
+
+    <div class="">
+      <button class="text-white"><a href="/login">Login</a></button>
+    </div>
+
+  </nav>
+
+
+  {{!-- main content --}}
   <main>
     {{{ body }}}
   </main>
