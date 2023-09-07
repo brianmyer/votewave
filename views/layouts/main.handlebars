@@ -19,13 +19,11 @@
     </h1>
 
     <nav>
+      <li class="text-white"><a href="/create-poll">Create Poll</a></li>
       {{#if logged_in}}
-      <a href="/homepage">Homepage</a>
-      <a href="/profile">Profile</a>
+      <li class="text-white"><a href="/profile">Profile</a></li>
       <button class="no-button" id="logout">Logout</button>
       {{else}}
-      <li class="text-white"><a href="/create-poll">Create Poll</a></li>
-      <li class="text-white"><a href="/homepage">Homepage</a></li>
       <li class="text-white"><a href="/login">login</a></li>
       {{/if}}
     </nav>

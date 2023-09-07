@@ -21,7 +21,7 @@ async function newFormHandler (event) {
         alert('Failed to create poll');
       }
     }
-  };
+  }
 
   const newResponseOption = (event) => {
     if (event.target.matches('#add-response')) {
@@ -29,12 +29,12 @@ async function newFormHandler (event) {
         responses.appendChild(newResponse);
     
     }
-    }
+}
     
   
 //   let responses = document.querySelector('#responses');
 //   responses.addEventListener('click', newResponseOption);
 
   let newPollForm = document.querySelector('.new-poll-form');
-  newPollForm.addEventListener('submit', newFormHandler());
+  newPollForm.addEventListener('submit', newFormHandler);
 

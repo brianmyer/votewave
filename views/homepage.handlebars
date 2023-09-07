@@ -2,13 +2,21 @@
   <h2 class="text-3xl text-center m-2">Latest Polls</h2>
 
   {{#each polls as |poll| }}
-  <a href="/results/{{poll.id}}">
-    <section>
-      <h3>{{poll.name}}</h3>
-      <div id="poll-{{poll.id}}"></div>
-      <p>Poll created by {{poll.user.name}} </p>
-    </section>
-  </a>
+
+    <div class="container w-3/4 p-4 m-8 mx-auto bg-gray-400 rounded-3xl">
+
+      <section>
+
+        <h3 class="text-2xl text-center m-2"><a href="/results/{{poll.id}}">{{poll.name}}</a></h3>
+
+        <div id="poll-{{poll.id}}"></div>
+
+        <p class="text-end text-gray-300">Poll created by {{poll.user.name}} </p>
+
+      </section>
+
+    </div>
+
   {{/each}}
   <!-- Limit to 4 or 5? -->
 </div>
