@@ -10,11 +10,10 @@
     {{#each polls as |poll|}}
     <div class="container w-3/4 p-4 m-8 mx-auto bg-gray-400 rounded-3xl">
 
-      <div >
-        <h4 class="text-3xl text-center m-2"><a href="/response/{{poll.id}}">{{poll.name}}</a></h4>
-      </div>
-
-      <div >
+      <div class="">
+        <h4 class="text-3xl text-center m-2">{{poll.name}}</h4>
+        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/results/{{poll.id}}">Results</a></button>
+        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/response/{{poll.id}}">View poll</a></button>
         <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}">DELETE</button>
       </div>
 
