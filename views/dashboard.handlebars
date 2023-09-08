@@ -11,7 +11,9 @@
     {{#each polls as |poll|}}
     <div >
       <div >
-        <h4><a href="/project/{{poll.id}}">{{poll.name}}</a></h4>
+        <h4>{{poll.name}}</h4>
+        <h5><a href="/results/{{poll.id}}">Results</a></h5>
+        <h5><a href="/response/{{poll.id}}">View poll</a></h5>
       </div>
       <div >
         <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>

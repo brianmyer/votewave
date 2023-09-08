@@ -99,7 +99,8 @@ router.get('/response/:id', async (req, res) => {
     const poll = pollData.get({ plain: true });
     console.log(poll)
     res.render('response', {
-      ...poll
+      ...poll,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     console.log(err)
