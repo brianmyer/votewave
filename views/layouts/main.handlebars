@@ -16,39 +16,26 @@
 
     <h1 class="text-3xl md:text-6xl text-center p-4 text-blue-100"><a href="/">VoteWave</a></h1>
 
-    <nav class="hidden md:flex justify-around container mx-auto w-1/2">
+    <nav class="hidden md:block absolute top-4 right-4">
       {{#if logged_in}}
-      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
-      <button class="text-white"><a href="/dashboard">Profile</a></button>
-      <button class="text-white" id="logout">Logout</button>
+      <button class="text-white"><a href="/dashboard"><img class="w-16" src="/images/tester.png"></a></button>
       {{else}}
-      <button class="text-white"><a href="/login">login</a></button>
+      <button class="text-white"><a href="/login"><img class="w-16" src="/images/tester.png"></a></button>
       {{/if}}
     </nav>
 
   </header>
 
   {{!-- mobile nav --}}
-  <nav class="fixed bottom-0 left-0 right-0 h-32 w-full bg-gray-800 md:hidden flex justify-evenly">
+  <nav class="fixed bottom-0 left-0 right-0 h-20 w-full bg-gray-800 md:hidden flex justify-evenly">
 
-    <img src="/images/tester.png">
+    <button class="text-white"><a href="/"><img class="w-16" src="/images/tester.png"></a></button>
 
-    <div class="">
-      <a href="/create-poll"></a>
-    </div>
-
-    <div class="">
-      <button class="text-white"><a href="/">Home</a></button>
-    </div>
-
-      {{#if logged_in}}
-        <button class="text-white"><a href="/profile">Profile</a></button>
-        <button id="logout">Logout</button>
-      {{else}}
-        <div class="">
-          <button class="text-white"><a href="/login">Login</a></button>
-        </div>
-      {{/if}}
+    {{#if logged_in}}
+      <button class="text-white"><a href="/dashboard"><img class="w-16" src="/images/tester.png"></a></button>
+    {{else}}
+      <button class="text-white"><a href="/login"><img class="w-16" src="/images/tester.png"></a></button>
+    {{/if}}
 
   </nav>
 
@@ -97,8 +84,5 @@
 
   </footer>
 
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 </html>

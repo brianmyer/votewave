@@ -57,6 +57,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     const polls = pollData.map((poll) => poll.get({ plain: true }));
 
+    polls.reverse()
+
     res.render('dashboard', {
       ...user,
       polls,
