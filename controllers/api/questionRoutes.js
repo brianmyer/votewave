@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.post('/:id',  async (req, res) => {
     try {
       const newQuestion = await Question.create({

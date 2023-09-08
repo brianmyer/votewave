@@ -6,10 +6,21 @@
     <p>{{pollData.questions.[0].text}} - Results:</p>
 
     <p>{{pollData.questions.[0].response1}}: {{countedResults.[0].CountPerIndex}} </p>
+
     <p>{{pollData.questions.[0].response2}}: {{countedResults.[1].CountPerIndex}} </p>
+
+    {{#if pollData.questions.[0].response3}}
     <p>{{pollData.questions.[0].response3}}: {{countedResults.[2].CountPerIndex}} </p>
+    {{/if}}
+
+    {{#if pollData.questions.[0].response4}}
     <p>{{pollData.questions.[0].response4}}: {{countedResults.[3].CountPerIndex}} </p>
+    {{/if}}
+
+    {{#if pollData.questions.[0].response5}}
     <p>{{pollData.questions.[0].response5}}: {{countedResults.[4].CountPerIndex}} </p>
+    {{/if}}
+
 
     <div id="poll-{{id}} column-chart"></div>
     <div id="poll-{{id}} donut-chart"></div>

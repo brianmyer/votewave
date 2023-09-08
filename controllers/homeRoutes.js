@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Sequelize } = require('sequelize');
+const sequelize = require('../config/connection');
 const { Poll, User, Question, Response } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -117,23 +117,26 @@ router.get('/results/:id', async (req, res) => {
     });
     const pollResult = pollData.get({ plain: true });
 
-    const resultsData = await Response.findAll({
-      attributes: ['index_number', [Sequelize.fn('COUNT', Sequelize.col('index_number')), 'CountPerIndex']],
-      group: ['index_number'],
-      order: [['index_number', 'ASC']],
-    })
-    const countedResults = resultsData.map((result) => result.get({ plain: true }));
+      const [results] = await sequelize.query(`SELECT response.question_id, index_number, COUNT(index_number) AS CountPerIndex, poll_id
+      FROM response
+      inner join question on question.id = response.question_id
+      
+      GROUP BY question_id, index_number
+      ORDER BY poll_id; `)
+    
+    const filteredResults = results.filter(result => result.question_id === pollData.questions[0].id)
 
     const result = {
       pollData: pollResult,
-      countedResults: countedResults
+      countedResults: filteredResults
     };
-    res.status(200).json(result)
-    // res.render('results', {
-    //   ...result,
-    //   logged_in: req.session.logged_in
-    // });
+    // res.status(200).json(result)
+    res.render('results', {
+      ...result,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });
