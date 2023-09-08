@@ -10,9 +10,11 @@ async function responseHandler (event) {
               'Content-Type': 'application/json'
             },
           });
+         
 
     if (response.ok) {
-      document.location.replace(`/results/${question_id}`);
+      console.log(response)
+      document.location.replace(`/results/${poll_id}`);
 
       const modals = document.getElementById('modals')
       const modal = document.getElementById('vote-success')
