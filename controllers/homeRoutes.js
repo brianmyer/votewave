@@ -1,6 +1,8 @@
 const router = require('express').Router();
+const { Sequelize } = require('sequelize');
 const { Poll, User, Question, Response } = require('../models');
 const withAuth = require('../utils/auth');
+
 
 
 router.get('/', async (req, res) => {
@@ -22,9 +24,9 @@ router.get('/', async (req, res) => {
     polls.reverse()
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      polls, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      polls,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -41,7 +43,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
     const pollData = await Poll.findAll({
-      
+
       include: [
         {
           model: User,
@@ -68,8 +70,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
 router.get('/create-poll', withAuth, async (req, res) => {
   try {
 
-    res.render('create-poll', { 
-      logged_in: req.session.logged_in 
+    res.render('create-poll', {
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.render('signup')
@@ -79,8 +81,8 @@ router.get('/create-poll', withAuth, async (req, res) => {
 router.get('/create-responses/:id', withAuth, async (req, res) => {
   try {
 
-    res.render('create-responses', { 
-      logged_in: req.session.logged_in 
+    res.render('create-responses', {
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.render('signup')
@@ -89,13 +91,14 @@ router.get('/create-responses/:id', withAuth, async (req, res) => {
 
 router.get('/response/:id', async (req, res) => {
   try {
-    const pollData = await Poll.findOne( { 
-      where: {id: req.params.id},
-      include: [{ model: Question }]}
-      );
-      const poll = pollData.get({ plain: true });
-      console.log(poll)
-    res.render('response', { 
+    const pollData = await Poll.findOne({
+      where: { id: req.params.id },
+      include: [{ model: Question }]
+    }
+    );
+    const poll = pollData.get({ plain: true });
+    console.log(poll)
+    res.render('response', {
       ...poll,
       logged_in: req.session.logged_in
     });
@@ -107,20 +110,29 @@ router.get('/response/:id', async (req, res) => {
 
 router.get('/results/:id', async (req, res) => {
   try {
-    const pollData = await Poll.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const pollData = await Poll.findOne({
+      where: { id: req.params.id },
+      include: [{ model: Question, include: [{ model: Response }] }, { model: User }
+      ]
     });
-
     const pollResult = pollData.get({ plain: true });
-    res.render('results', {
-      ...pollResult,
-      logged_in: req.session.logged_in
-    });
+
+    const resultsData = await Response.findAll({
+      attributes: ['index_number', [Sequelize.fn('COUNT', Sequelize.col('index_number')), 'CountPerIndex']],
+      group: ['index_number'],
+      order: [['index_number', 'ASC']],
+    })
+    const countedResults = resultsData.map((result) => result.get({ plain: true }));
+
+    const result = {
+      pollData: pollResult,
+      countedResults: countedResults
+    };
+    res.status(200).json(result)
+    // res.render('results', {
+    //   ...result,
+    //   logged_in: req.session.logged_in
+    // });
   } catch (err) {
     res.status(500).json(err);
   }

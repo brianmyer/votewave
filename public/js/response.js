@@ -1,6 +1,7 @@
 async function responseHandler (event) {
     let indexNumber = event.target.getAttribute('data-index')
     let question_id = event.target.getAttribute('data-question')
+
     if (indexNumber && question_id) {
         const response = await fetch(`/api/responses`, {
             method: 'POST',
@@ -11,6 +12,8 @@ async function responseHandler (event) {
           });
 
     if (response.ok) {
+      document.location.replace(`/results/${question_id}`);
+
       const modals = document.getElementById('modals')
       const modal = document.getElementById('vote-success')
       modals.classList.remove('hidden')
@@ -25,6 +28,7 @@ async function responseHandler (event) {
           modals.classList.add('hidden')
         }, 100)
       }, 3000)
+
     }
     else {
         console.log('nope.avi')
