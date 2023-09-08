@@ -17,7 +17,11 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      const errorModal = document.getElementById('login-error')
+      errorModal.classList.remove('hidden');
+      setTimeout(() => {
+        errorModal.classList.add('hidden');
+      }, 3000)
     }
   }
 };
@@ -39,7 +43,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      alert('yo')
     }
   }
 };

@@ -18,15 +18,11 @@ async function newFormHandler (event) {
 
         document.location.replace(`/create-responses/${poll.id}`);
       } else {
-      document.getElementById('error-modal').classList.remove('hidden');
-      
-      setTimeout(() => {
-        document.getElementById('error-modal').classList.add('hidden');
-      }, 3000)
+        alert('yo')
       }
     }
   };
-    
+  
   
   let newPollForm = document.querySelector('.new-poll-form');
   newPollForm.addEventListener('submit', newFormHandler);
