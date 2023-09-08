@@ -11,7 +11,7 @@ async function responseHandler (event) {
           });
 
     if (response.ok) {
-            alert('thank you for your response')
+      document.location.replace(`/results/${question_id}`);
     }
     else {
         console.log('nope.avi')
