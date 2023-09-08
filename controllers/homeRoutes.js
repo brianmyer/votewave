@@ -18,6 +18,9 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const polls = projectData.map((project) => project.get({ plain: true }));
 
+    // reverse polls so that the newest is at the top
+    polls.reverse()
+
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       polls, 

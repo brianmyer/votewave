@@ -1,33 +1,26 @@
-<div class="text-center response-group">    
- {{#each questions as |question|}}
-
+<div class="md:container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 md:rounded-3xl">  
     
-     <div>
-                <p>{{question.text}}</p>
-   
-            </div>
-    <div  >
-            <div>
-                <button data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>
-            </div>
+    {{#each questions as |question|}}
 
-            <div>
-                <button data-index="2" data-question='{{question.id}}'>{{question.response2}}</button>
-            </div>
+        <h2 class="text-2xl text-center m-6">{{question.text}}</h2>
 
-            <div>
-                <button data-index="3" data-question='{{question.id}}'>{{question.response3}}</button>
-            </div>
+        <div class="response-group flex flex-col justify-center items-center" >
 
-            <div>
-                <button data-index="4" data-question='{{question.id}}'>{{question.response4}}</button>
-            </div>
+            <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>
 
-            <div>
-                <button data-index="5" data-question='{{question.id}}'>{{question.response5}}</button>
-            </div>
-    </div>
-{{/each}}
+            <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="2" data-question='{{question.id}}'>{{question.response2}}</button>
+
+            <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="3" data-question='{{question.id}}'>{{question.response3}}</button>
+
+            <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="4" data-question='{{question.id}}'>{{question.response4}}</button>
+
+            <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="5" data-question='{{question.id}}'>{{question.response5}}</button>
+
+
+        </div>
+
+    {{/each}}
+
 </div>
 
 

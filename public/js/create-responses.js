@@ -29,7 +29,20 @@ async function newFormHandler(event) {
         document.location.reload();
         alert('Thank you for your question! Please make a new question')
     } else {
-        alert('Failed to create question');
+        const modals = document.getElementById('modals')
+        const modal = document.getElementById('create-responses-error')
+        modals.classList.remove('hidden')
+        setTimeout(() => {
+          modal.classList.remove('opacity-0')
+          modal.classList.add('opacity-100')
+        }, 100)
+        setTimeout(() => {
+          modal.classList.remove('opacity-100')
+          modal.classList.add('opacity-0')
+          setTimeout(() => {
+            modals.classList.add('hidden')
+          }, 100)
+        }, 3000)
     }
 };
 

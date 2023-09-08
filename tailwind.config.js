@@ -6,9 +6,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-
+      colors: {
+        'primary': '#007bff',
+        'secondary': '#ff9900',
+      },
+      fontFamily: {
+        fontMain: ['test'],
+        fontSecondary: ['test'],
+      }
     },
   },
   plugins: [],
 }
-
