@@ -19,6 +19,7 @@ router.get('/:id', async (req, res) => {
       include: [{ model: Question,  include: [{model: Response}]}
       ]});
     res.status(200).json(pollData)
+    console.log(pollData);
   } 
   catch (err) {
   res.status(500).json(err);
