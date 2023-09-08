@@ -16,11 +16,11 @@
 
     <h1 class="text-3xl md:text-6xl text-center p-4 text-blue-100"><a href="/">VoteWave</a></h1>
 
-    <nav class="hidden md:flex justify-around container mx-auto w-1/2">
+    <nav class="hidden md:block absolute top-4 right-4">
       {{#if logged_in}}
-      <button class="text-white"><a href="/dashboard">Profile</a></button>
+      <button class="text-white"><a href="/dashboard"><img class="w-16" src="/images/tester.png"></a></button>
       {{else}}
-      <button class="text-white"><a href="/login">Profile</a></button>
+      <button class="text-white"><a href="/login"><img class="w-16" src="/images/tester.png"></a></button>
       {{/if}}
     </nav>
 
@@ -29,12 +29,12 @@
   {{!-- mobile nav --}}
   <nav class="fixed bottom-0 left-0 right-0 h-20 w-full bg-gray-800 md:hidden flex justify-evenly">
 
-    <button class="text-white"><a href="/"><img src="/images/tester.png"></a></button>
+    <button class="text-white"><a href="/"><img class="w-16" src="/images/tester.png"></a></button>
 
     {{#if logged_in}}
-      <button class="text-white"><a href="/dashboard"><img src="/images/tester.png"></a></button>
+      <button class="text-white"><a href="/dashboard"><img class="w-16" src="/images/tester.png"></a></button>
     {{else}}
-      <button class="text-white"><a href="/login"><img src="/images/tester.png"></a></button>
+      <button class="text-white"><a href="/login"><img class="w-16" src="/images/tester.png"></a></button>
     {{/if}}
 
   </nav>
