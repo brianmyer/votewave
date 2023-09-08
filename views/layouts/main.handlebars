@@ -17,10 +17,9 @@
     <h1 class="text-3xl md:text-6xl text-center p-4 text-blue-100"><a href="/">VoteWave</a></h1>
 
     <nav class="hidden md:flex justify-around container mx-auto w-1/2">
-      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
       {{#if logged_in}}
-      <button class="text-white"><a href="/">Homepage</a></button>
-      <button class="text-white"><a href="/profile">Profile</a></button>
+      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
+      <button class="text-white"><a href="/dashboard">Profile</a></button>
       <button class="text-white" id="logout">Logout</button>
       {{else}}
       <button class="text-white"><a href="/login">login</a></button>
