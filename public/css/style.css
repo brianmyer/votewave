@@ -568,16 +568,40 @@ video {
   }
 }
 
+.fixed {
+  position: fixed;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.right-10 {
+  right: 2.5rem;
+}
+
+.top-40 {
+  top: 10rem;
+}
+
 .m-2 {
   margin: 0.5rem;
 }
 
-.m-8 {
-  margin: 2rem;
+.m-6 {
+  margin: 1.5rem;
 }
 
-.m-1 {
-  margin: 0.25rem;
+.m-8 {
+  margin: 2rem;
 }
 
 .mx-auto {
@@ -585,8 +609,40 @@ video {
   margin-right: auto;
 }
 
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.h-40 {
+  height: 10rem;
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.resize-none {
+  resize: none;
 }
 
 .flex-col {
@@ -601,6 +657,14 @@ video {
   justify-content: center;
 }
 
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .rounded-3xl {
   border-radius: 1.5rem;
 }
@@ -611,6 +675,16 @@ video {
 
 .border-2 {
   border-width: 2px;
+}
+
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-gray-500 {
@@ -633,6 +707,20 @@ video {
   background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+}
+
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
+.bg-opacity-50 {
+  --tw-bg-opacity: 0.5;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -645,14 +733,92 @@ video {
   text-align: center;
 }
 
+.text-end {
+  text-align: end;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
+.text-blue-100 {
+  --tw-text-opacity: 1;
+  color: rgb(219 234 254 / var(--tw-text-opacity));
+}
+
+.text-gray-300 {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.duration-100 {
+  transition-duration: 100ms;
+}
+
+@media (min-width: 768px) {
+  .md\:container {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .md\:container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .md\:container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .md\:container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .md\:container {
+      max-width: 1536px;
+    }
+  }
+}
+
+.hover\:bg-blue-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(147 197 253 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-green-200:hover {
@@ -665,67 +831,38 @@ video {
   outline-offset: 2px;
 }
 
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:rounded-3xl {
+    border-radius: 1.5rem;
+  }
+
+  .md\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
 @media (min-width: 1280px) {
-  .xl\:w-3\/4 {
-    width: 75%;
-  }
-
-  .xl\:w-2\/4 {
-    width: 50%;
-  }
-
-  .xl\:w-1\/5 {
-    width: 20%;
-  }
-
-  .xl\:w-1\/6 {
-    width: 16.666667%;
-  }
-
-  .xl\:w-1\/2 {
-    width: 50%;
-  }
-
-  .xl\:w-4 {
-    width: 1rem;
-  }
-
-  .xl\:w-8 {
-    width: 2rem;
-  }
-
-  .xl\:w-1 {
-    width: 0.25rem;
-  }
-
   .xl\:w-1\/4 {
     width: 25%;
+  }
+
+  .xl\:w-3\/4 {
+    width: 75%;
   }
 }
 
 @media (min-width: 1536px) {
   .\32xl\:w-1\/2 {
     width: 50%;
-  }
-
-  .\32xl\:w-3\/4 {
-    width: 75%;
-  }
-
-  .\32xl\:w-1\/4 {
-    width: 25%;
-  }
-
-  .\32xl\:w-2\/4 {
-    width: 50%;
-  }
-
-  .\32xl\:w-2\/6 {
-    width: 33.333333%;
-  }
-
-  .\32xl\:w-1\/6 {
-    width: 16.666667%;
   }
 
   .\32xl\:w-1\/5 {

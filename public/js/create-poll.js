@@ -18,11 +18,24 @@ async function newFormHandler (event) {
 
         document.location.replace(`/create-responses/${poll.id}`);
       } else {
-        alert('Failed to create poll');
+        const modals = document.getElementById('modals')
+        const modal = document.getElementById('create-poll-error')
+        modals.classList.remove('hidden')
+        setTimeout(() => {
+          modal.classList.remove('opacity-0')
+          modal.classList.add('opacity-100')
+        }, 100)
+        setTimeout(() => {
+          modal.classList.remove('opacity-100')
+          modal.classList.add('opacity-0')
+          setTimeout(() => {
+            modals.classList.add('hidden')
+          }, 100)
+        }, 3000)
       }
     }
   };
-    
+  
   
   let newPollForm = document.querySelector('.new-poll-form');
   newPollForm.addEventListener('submit', newFormHandler);

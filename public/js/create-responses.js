@@ -26,25 +26,34 @@ async function newFormHandler(event) {
         });
     }
     if (question.ok) {
-        document.location.replace(`/dashboard`);
+        document.location.reload();
+        alert('Thank you for your question! Please make a new question')
     } else {
-        alert('Failed to create question');
+        const modals = document.getElementById('modals')
+        const modal = document.getElementById('create-responses-error')
+        modals.classList.remove('hidden')
+        setTimeout(() => {
+          modal.classList.remove('opacity-0')
+          modal.classList.add('opacity-100')
+        }, 100)
+        setTimeout(() => {
+          modal.classList.remove('opacity-100')
+          modal.classList.add('opacity-0')
+          setTimeout(() => {
+            modals.classList.add('hidden')
+          }, 100)
+        }, 3000)
     }
 };
 
-// async function newResponseOption(event) {
-//     if (event.target.matches('#add-response')) {
-//         const newResponse = document.createElement('input');
-//         newResponse.setAttribute('class', 'response')
-//         responses.appendChild(newResponse);
-
-//     }
-// }
-
-
-// let responses = document.querySelector('#responses');
-// responses.addEventListener('click', newResponseOption);
+function completePoll(event) {
+    event.preventDefault()
+    alert('Your poll has been created!')
+    document.location.replace('/dashboard')
+}
 
 let newPollForm = document.querySelector('.new-question-form');
 newPollForm.addEventListener('submit', newFormHandler);
 
+let doneButton = document.querySelector('.im-done');
+doneButton.addEventListener('click', completePoll)

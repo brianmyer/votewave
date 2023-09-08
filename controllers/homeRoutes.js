@@ -20,6 +20,9 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const polls = projectData.map((project) => project.get({ plain: true }));
 
+    // reverse polls so that the newest is at the top
+    polls.reverse()
+
     // Pass serialized data and session flag into template
     res.render('homepage', {
       polls,
@@ -124,12 +127,11 @@ router.get('/results/:id', async (req, res) => {
       pollData: pollResult,
       countedResults: countedResults
     };
-    // res.status(200).json(result)
-    console.log(countedResults)
-    res.render('results', {
-      ...result,
-      logged_in: req.session.logged_in
-    });
+    res.status(200).json(result)
+    // res.render('results', {
+    //   ...result,
+    //   logged_in: req.session.logged_in
+    // });
   } catch (err) {
     res.status(500).json(err);
   }
