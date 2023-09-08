@@ -14,7 +14,7 @@
 
   <header class="bg-gray-800">
 
-    <h1 class="text-8xl text-center p-8 text-blue-100"><a href="/">Poll</a></h1>
+    <h1 class="text-3xl md:text-6xl text-center p-4 text-blue-100"><a href="/">VoteWave</a></h1>
 
     <nav class="hidden md:flex justify-around container mx-auto w-1/2">
       <button class="text-white"><a href="/create-poll">Create Poll</a></button>
@@ -28,11 +28,13 @@
 
   </header>
 
-
+  {{!-- mobile nav --}}
   <nav class="fixed bottom-0 left-0 right-0 h-32 w-full bg-gray-800 md:hidden flex justify-evenly">
 
+    <img src="../../public/images/tester.png">
+
     <div class="">
-      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
+      <a href="/create-poll"></a>
     </div>
 
     <div class="">
