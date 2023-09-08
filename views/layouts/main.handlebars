@@ -18,37 +18,24 @@
 
     <nav class="hidden md:flex justify-around container mx-auto w-1/2">
       {{#if logged_in}}
-      <button class="text-white"><a href="/create-poll">Create Poll</a></button>
       <button class="text-white"><a href="/dashboard">Profile</a></button>
-      <button class="text-white" id="logout">Logout</button>
       {{else}}
-      <button class="text-white"><a href="/login">login</a></button>
+      <button class="text-white"><a href="/login">Profile</a></button>
       {{/if}}
     </nav>
 
   </header>
 
   {{!-- mobile nav --}}
-  <nav class="fixed bottom-0 left-0 right-0 h-32 w-full bg-gray-800 md:hidden flex justify-evenly">
+  <nav class="fixed bottom-0 left-0 right-0 h-20 w-full bg-gray-800 md:hidden flex justify-evenly">
 
-    <img src="/images/tester.png">
+    <button class="text-white"><a href="/"><img src="/images/tester.png"></a></button>
 
-    <div class="">
-      <a href="/create-poll"></a>
-    </div>
-
-    <div class="">
-      <button class="text-white"><a href="/">Home</a></button>
-    </div>
-
-      {{#if logged_in}}
-        <button class="text-white"><a href="/profile">Profile</a></button>
-        <button id="logout">Logout</button>
-      {{else}}
-        <div class="">
-          <button class="text-white"><a href="/login">Login</a></button>
-        </div>
-      {{/if}}
+    {{#if logged_in}}
+      <button class="text-white"><a href="/dashboard"><img src="/images/tester.png"></a></button>
+    {{else}}
+      <button class="text-white"><a href="/login"><img src="/images/tester.png"></a></button>
+    {{/if}}
 
   </nav>
 
@@ -97,8 +84,5 @@
 
   </footer>
 
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
 </body>
 </html>

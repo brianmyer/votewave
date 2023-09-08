@@ -1,5 +1,8 @@
-<h2 class="text-1xl text-end m-2">Welcome back, {{name}}!</h2>
+<button class="p-2 m-4 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/create-poll">Create a new poll</a></button>
 
+<h2 class="text-1xl m-2">Welcome back, {{name}}!</h2>
+
+<button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" id="logout-button">Logout</button>
 
 <div class="md:container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 md:rounded-3xl">
 
@@ -12,8 +15,8 @@
 
       <div class="">
         <h4 class="text-3xl text-center m-2">{{poll.name}}</h4>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/results/{{poll.id}}">Results</a></button>
         <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/response/{{poll.id}}">View poll</a></button>
+        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/results/{{poll.id}}">Results</a></button>
         <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}">DELETE</button>
       </div>
 
@@ -23,8 +26,4 @@
   {{/if}}
 </div>
 
-<a href="/create-poll">
-<button>Create a new poll</button>
-</a>
-
-{{!-- <script src="./js/profile.js"></script> --}}
+<script src="/js/logout.js"></script>
