@@ -11,7 +11,20 @@ async function responseHandler (event) {
           });
 
     if (response.ok) {
-            alert('thank you for your response')
+      const modals = document.getElementById('modals')
+      const modal = document.getElementById('vote-success')
+      modals.classList.remove('hidden')
+      setTimeout(() => {
+        modal.classList.remove('opacity-0')
+        modal.classList.add('opacity-100')
+      }, 100)
+      setTimeout(() => {
+        modal.classList.remove('opacity-100')
+        modal.classList.add('opacity-0')
+        setTimeout(() => {
+          modals.classList.add('hidden')
+        }, 100)
+      }, 3000)
     }
     else {
         console.log('nope.avi')

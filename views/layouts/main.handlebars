@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Poll</title>
+  <title>VoteWave</title>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/style.css">
@@ -20,7 +20,7 @@
       <button class="text-white"><a href="/create-poll">Create Poll</a></button>
       {{#if logged_in}}
       <button class="text-white"><a href="/profile">Profile</a></button>
-      <button class="no-button" id="logout">Logout</button>
+      <button id="logout">Logout</button>
       {{else}}
       <button class="text-white"><a href="/login">Login</a></button>
       {{/if}}
@@ -31,7 +31,7 @@
   {{!-- mobile nav --}}
   <nav class="fixed bottom-0 left-0 right-0 h-32 w-full bg-gray-800 md:hidden flex justify-evenly">
 
-    <img src="../../public/images/tester.png">
+    <img src="/images/tester.png">
 
     <div class="">
       <a href="/create-poll"></a>
@@ -41,9 +41,14 @@
       <button class="text-white"><a href="/">Home</a></button>
     </div>
 
-    <div class="">
-      <button class="text-white"><a href="/login">Login</a></button>
-    </div>
+      {{#if logged_in}}
+        <button class="text-white"><a href="/profile">Profile</a></button>
+        <button id="logout">Logout</button>
+      {{else}}
+        <div class="">
+          <button class="text-white"><a href="/login">Login</a></button>
+        </div>
+      {{/if}}
 
   </nav>
 
@@ -53,9 +58,36 @@
     {{{ body }}}
 
     {{!-- modals --}}
-    <div id="login-error" class="hidden top-40 right-10 fixed bg-red-400 bg-opacity-50 p-4 rounded-3xl">
+    <div class="hidden" id="modals">
+
+      {{!-- success --}}
+      <div id="vote-success" class="opacity-0 transition-opacity duration-100 top-40 right-10 fixed bg-green-400 bg-opacity-50 p-4 rounded-3xl">
+        <h2 class="text-2xl mb-4">Success</h2>
+        <p>Thank You for your response!</p>
+      </div>
+
+      {{!-- errors --}}
+      <div id="login-error" class="opacity-0 transition-opacity duration-100 top-40 right-10 fixed bg-red-400 bg-opacity-50 p-4 rounded-3xl">
         <h2 class="text-2xl mb-4">Error</h2>
         <p>Failed to Login. Please try again.</p>
+      </div>
+      <div id="signup-error" class="opacity-0 transition-opacity duration-100 top-40 right-10 fixed bg-red-400 bg-opacity-50 p-4 rounded-3xl">
+        <h2 class="text-2xl mb-4">Error</h2>
+        <p>Failed to Sign Up. Please try again.</p>
+      </div>
+      <div id="create-poll-error" class="opacity-0 transition-opacity duration-100 top-40 right-10 fixed bg-red-400 bg-opacity-50 p-4 rounded-3xl">
+        <h2 class="text-2xl mb-4">Error</h2>
+        <p>Failed to Create Poll. Please try again.</p>
+      </div>
+      <div id="create-responses-error" class="opacity-0 transition-opacity duration-100 top-40 right-10 fixed bg-red-400 bg-opacity-50 p-4 rounded-3xl">
+        <h2 class="text-2xl mb-4">Error</h2>
+        <p>Failed to Create Responses. Please try again.</p>
+      </div>
+      <div id="logout-error" class="opacity-0 transition-opacity duration-100 top-40 right-10 fixed bg-red-400 bg-opacity-50 p-4 rounded-3xl">
+        <h2 class="text-2xl mb-4">Error</h2>
+        <p>Failed to Logout. Please try again.</p>
+      </div>
+
     </div>
   </main>
 

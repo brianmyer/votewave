@@ -17,10 +17,19 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/dashboard');
     } else {
-      const errorModal = document.getElementById('login-error')
-      errorModal.classList.remove('hidden');
+      const modals = document.getElementById('modals')
+      const modal = document.getElementById('login-error')
+      modals.classList.remove('hidden')
       setTimeout(() => {
-        errorModal.classList.add('hidden');
+        modal.classList.remove('opacity-0')
+        modal.classList.add('opacity-100')
+      }, 100)
+      setTimeout(() => {
+        modal.classList.remove('opacity-100')
+        modal.classList.add('opacity-0')
+        setTimeout(() => {
+          modals.classList.add('hidden')
+        }, 100)
       }, 3000)
     }
   }
