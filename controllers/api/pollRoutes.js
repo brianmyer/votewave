@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 
 
 //Retrieve user-specific polls
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const pollData = await Poll.findAll( { 
       where: {user_id: req.session.user_id},
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
   }
 });
 //Retrieve ONE user-specific poll
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const pollData = await Poll.findOne( { 
       where: {user_id: req.session.user_id, id: req.params.id},
@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 //create new poll
-router.post('/',  async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newPoll = await Poll.create({
       ...req.body,
@@ -48,7 +48,7 @@ router.post('/',  async (req, res) => {
 
 
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {

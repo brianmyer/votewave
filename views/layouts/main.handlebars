@@ -19,10 +19,12 @@
     <nav class="hidden md:flex justify-around container mx-auto w-1/2">
       <button class="text-white"><a href="/create-poll">Create Poll</a></button>
       {{#if logged_in}}
-      <button class="text-white"><a href="/profile">Profile</a></button>
-      <button id="logout">Logout</button>
+      <a href="/">Homepage</a>
+      <a href="/profile">Profile</a>
+      <button class="no-button" id="logout">Logout</button>
       {{else}}
-      <button class="text-white"><a href="/login">Login</a></button>
+      <a href="/">Homepage</a>
+      <a href="/login">login</a>
       {{/if}}
     </nav>
 

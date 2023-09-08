@@ -26,7 +26,8 @@ async function newFormHandler(event) {
         });
     }
     if (question.ok) {
-        document.location.replace(`/dashboard`);
+        document.location.reload();
+        alert('Thank you for your question! Please make a new question')
     } else {
         const modals = document.getElementById('modals')
         const modal = document.getElementById('create-responses-error')
@@ -45,19 +46,14 @@ async function newFormHandler(event) {
     }
 };
 
-// async function newResponseOption(event) {
-//     if (event.target.matches('#add-response')) {
-//         const newResponse = document.createElement('input');
-//         newResponse.setAttribute('class', 'response')
-//         responses.appendChild(newResponse);
-
-//     }
-// }
-
-
-// let responses = document.querySelector('#responses');
-// responses.addEventListener('click', newResponseOption);
+function completePoll(event) {
+    event.preventDefault()
+    alert('Your poll has been created!')
+    document.location.replace('/dashboard')
+}
 
 let newPollForm = document.querySelector('.new-question-form');
 newPollForm.addEventListener('submit', newFormHandler);
 
+let doneButton = document.querySelector('.im-done');
+doneButton.addEventListener('click', completePoll)
