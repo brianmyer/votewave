@@ -6,23 +6,21 @@
     <h4>{{pollData.description}}</h4>
     {{#each pollData.questions as |poll|}} 
     <p>{{poll.text}} - Results:</p>
-    {{#each countedResults as |count|}}
-    <p>{{poll.response1}}: {{count.countPerIndex}} </p>
+    <p>{{poll.response1}}: {{countedResults.[0].countPerIndex}} </p>
 
-    <p>{{poll.response2}}: {{count.countPerIndex}} </p>
+    <p>{{poll.response2}}: {{countedResults.[1].countPerIndex}} </p>
 
     {{#if poll.response3}}
-    <p>{{poll.response3}}: {{count.countPerIndex}} </p>
+    <p>{{poll.response3}}: {{countedResults.[2].countPerIndex}} </p>
     {{/if}}
 
     {{#if poll.response4}}
-    <p>{{poll.response4}}: {{count.countPerIndex}} </p>
+    <p>{{poll.response4}}: {{countedResults.[3].countPerIndex}} </p>
     {{/if}}
 
     {{#if poll.response5}}
-    <p>{{poll.response5}}: {{count.countPerIndex}} </p>
+    <p>{{poll.response5}}: {{countedResults.[4].countPerIndex}} </p>
     {{/if}}
-{{/each}} 
 {{/each}}
 
 
