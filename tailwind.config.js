@@ -13,7 +13,7 @@ module.exports = {
       fontFamily: {
         fontMain: ['test'],
         fontSecondary: ['test'],
-      }
+      },
     },
   },
   plugins: [],
