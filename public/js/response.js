@@ -11,8 +11,8 @@ async function responseHandler (event) {
             },
           });
 
+
     if (response.ok) {
-      document.location.replace(`/results/${question_id}`);
 
       const modals = document.getElementById('modals')
       const modal = document.getElementById('vote-success')
