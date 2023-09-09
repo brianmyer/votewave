@@ -1,25 +1,27 @@
 <h2>Results</h2>
 
 <div>
+
     <h3>{{pollData.name}}</h3>
     <h4>{{pollData.description}}</h4>
-    <p>{{pollData.questions.[0].text}} - Results:</p>
+    {{#each pollData.questions as |poll|}} 
+    <p>{{poll.text}} - Results:</p>
+    <p>{{poll.response1}}: {{countedResults.[0].countPerIndex}} </p>
 
-    <p>{{pollData.questions.[0].response1}}: {{countedResults.[0].CountPerIndex}} </p>
+    <p>{{poll.response2}}: {{countedResults.[1].countPerIndex}} </p>
 
-    <p>{{pollData.questions.[0].response2}}: {{countedResults.[1].CountPerIndex}} </p>
-
-    {{#if pollData.questions.[0].response3}}
-    <p>{{pollData.questions.[0].response3}}: {{countedResults.[2].CountPerIndex}} </p>
+    {{#if poll.response3}}
+    <p>{{poll.response3}}: {{countedResults.[2].countPerIndex}} </p>
     {{/if}}
 
-    {{#if pollData.questions.[0].response4}}
-    <p>{{pollData.questions.[0].response4}}: {{countedResults.[3].CountPerIndex}} </p>
+    {{#if poll.response4}}
+    <p>{{poll.response4}}: {{countedResults.[3].countPerIndex}} </p>
     {{/if}}
 
-    {{#if pollData.questions.[0].response5}}
-    <p>{{pollData.questions.[0].response5}}: {{countedResults.[4].CountPerIndex}} </p>
+    {{#if poll.response5}}
+    <p>{{poll.response5}}: {{countedResults.[4].countPerIndex}} </p>
     {{/if}}
+{{/each}}
 
 
     <div id="poll-{{id}} column-chart"></div>

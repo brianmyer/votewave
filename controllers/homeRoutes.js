@@ -119,7 +119,7 @@ router.get('/results/:id', async (req, res) => {
     });
     const pollResult = pollData.get({ plain: true });
 
-      const [results] = await sequelize.query(`SELECT response.question_id, index_number, COUNT(index_number) AS CountPerIndex, poll_id
+      const [results] = await sequelize.query(`SELECT response.question_id, index_number, COUNT(index_number) AS countPerIndex, poll_id
       FROM response
       inner join question on question.id = response.question_id
       
@@ -132,7 +132,7 @@ router.get('/results/:id', async (req, res) => {
       pollData: pollResult,
       countedResults: filteredResults
     };
-    // res.status(200).json(result)
+    console.log(result)
     res.render('results', {
       ...result,
       logged_in: req.session.logged_in
