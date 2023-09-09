@@ -7,12 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#007bff',
-        'secondary': '#ff9900',
+        'primary': '#1800ff',
+        'secondary': '#00a2ff',
       },
       fontFamily: {
-        main: ['Archivo, sans-serif'],
+        main: ['Syne, sans-serif'],
         secondary: ['Inter, sans-serif'],
+      },
+      boxShadow: {
+        top: '0 0 10px #00000020',
       },
     },
   },
