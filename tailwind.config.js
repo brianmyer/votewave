@@ -11,8 +11,8 @@ module.exports = {
         'secondary': '#ff9900',
       },
       fontFamily: {
-        fontMain: ['test'],
-        fontSecondary: ['test'],
+        main: ['Archivo, sans-serif'],
+        secondary: ['Inter, sans-serif'],
       },
     },
   },
