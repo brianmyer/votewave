@@ -9,6 +9,8 @@ module.exports = {
       colors: {
         'primary': '#1800ff',
         'secondary': '#00a2ff',
+        'light-1': '#eeeeee',
+        'light-2': '#ffffff',
       },
       fontFamily: {
         main: ['Syne, sans-serif'],

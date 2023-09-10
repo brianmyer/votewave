@@ -13,19 +13,20 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="bg-[#131313]">
+<body class="bg-light-1">
 
-  <header class="bg-[#0f0f0f]">
+  <header>
 
-    <h1 class="font-main text-3xl md:text-6xl text-center p-4 text-primary"><a href="/">VoteWave</a></h1>
+    <img class="mx-auto w-32 md:w-48 p-4" src="/images/VW.png">
+    {{!-- <h1 class="font-main text-3xl md:text-6xl text-center p-4 text-primary"><a href="/">VoteWave</a></h1> --}}
 
     <nav>
 
-      <div class="hidden md:block absolute top-6 right-28 hover:scale-95">
+      <div class="hidden md:block absolute top-8 right-40 hover:scale-95">
         <button><a href="/"><img class="w-12" src="/images/home.png"></a></button>
       </div>
 
-      <div class="hidden md:block absolute top-6 right-8 hover:scale-95">
+      <div class="hidden md:block absolute top-8 right-16 hover:scale-95">
         {{#if logged_in}}
         <button><a href="/dashboard"><img class="w-12" src="/images/profile.png"></a></button>
         {{else}}
@@ -38,7 +39,7 @@
   </header>
 
   {{!-- mobile nav --}}
-  <nav class="fixed bottom-0 left-0 right-0 h-20 w-full bg-secondary md:hidden flex justify-evenly shadow-top z-10">
+  <nav class="fixed bottom-0 left-0 right-0 h-24 w-full md:hidden flex justify-evenly shadow-top z-10 backdrop-blur-md">
 
     <button><a href="/"><img class="w-12" src="/images/home.png"></a></button>
 
@@ -89,18 +90,18 @@
     </div>
 
     {{!-- background credit to https://css-generators.com/wavy-shapes/ for the wave generation --}}
-    <div class="absolute bottom-0 bg-gradient-to-b from-secondary to-primary w-full h-3/4 md:h-1/3 brightness-200" style="--mask: radial-gradient(136.9px at 50% calc(100% + 122.00px),#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) calc(50% - 122px) calc(50% - 31px + .5px)/244px 62px , radial-gradient(136.9px at 50% -122px,#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) 50% calc(50% + 31px)/244px 62px ; -webkit-mask: var(--mask); mask: var(--mask); z-index: -2;"></div>
+    {{!-- <div class="absolute bottom-0 bg-gradient-to-b from-secondary to-primary w-full h-3/4 md:h-1/3 brightness-200" style="--mask: radial-gradient(136.9px at 50% calc(100% + 122.00px),#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) calc(50% - 122px) calc(50% - 31px + .5px)/244px 62px , radial-gradient(136.9px at 50% -122px,#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) 50% calc(50% + 31px)/244px 62px ; -webkit-mask: var(--mask); mask: var(--mask); z-index: -2;"></div> --}}
 
     {{!-- blur fake neon --}}
-    <div class="absolute bottom-0 w-full h-1/3 backdrop-blur-sm" style="z-index: -2;"></div>
+    {{!-- <div class="absolute bottom-0 w-full h-1/3 backdrop-blur-sm" style="z-index: -2;"></div> --}}
 
-    <div class="absolute bottom-0 bg-gradient-to-b from-secondary to-primary w-full h-3/4 md:h-1/3 backdrop-blur-md" style="--mask: radial-gradient(136.9px at 50% calc(100% + 122.00px),#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) calc(50% - 122px) calc(50% - 31px + .5px)/244px 62px , radial-gradient(136.9px at 50% -122px,#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) 50% calc(50% + 31px)/244px 62px ; -webkit-mask: var(--mask); mask: var(--mask); z-index: -1;"></div>
+    <div class="absolute bottom-0 bg-gradient-to-b from-secondary to-primary w-full h-1/3 backdrop-blur-md" style="--mask: radial-gradient(136.9px at 50% calc(100% + 122.00px),#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) calc(50% - 122px) calc(50% - 31px + .5px)/244px 62px , radial-gradient(136.9px at 50% -122px,#0000 calc(99% - 1px),#000 calc(101% - 1px) 99%,#0000 101%) 50% calc(50% + 31px)/244px 62px ; -webkit-mask: var(--mask); mask: var(--mask); z-index: -1;"></div>
 
   </main>
 
   <footer>
 
-    <p class="text-white text-center">&#169 2023 Cameron Hack, Brian Myer & Christian Dziedzic</p>
+    <p class="text-center pb-24">&#169 2023 Cameron Hack, Brian Myer & Christian Dziedzic</p>
 
   </footer>
 

@@ -1,12 +1,12 @@
-<h2 class="font-main text-4xl text-center m-8 text-white">Latest Polls</h2>
+<h2 class="font-main text-4xl text-center m-8">Latest Polls</h2>
 
 {{#each polls as |poll| }}
 
-  <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-[#161616] drop-shadow-sm md:rounded-3xl">
+  <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
 
     <section>
 
-      <h3 class="font-main text-2xl text-center m-2 text-white"><a href="/response/{{poll.id}}">{{poll.name}}</a></h3>
+      <h3 class="font-main text-2xl text-center m-2"><a href="/response/{{poll.id}}">{{poll.name}}</a></h3>
 
       <div id="poll-{{poll.id}}"></div>
 
