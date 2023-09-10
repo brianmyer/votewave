@@ -1,6 +1,6 @@
 <button class="p-2 m-4 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/create-poll">Create a new poll</a></button>
 
-<h2 class="text-1xl m-2">Welcome back, {{name}}!</h2>
+<h1 class="text-1xl m-2">Welcome back, {{name}}!</h1>
 
 <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" id="logout-button">Logout</button>
 
@@ -13,11 +13,11 @@
     {{#each polls as |poll|}}
     <div class="container w-3/4 p-4 m-8 mx-auto bg-gray-400 rounded-3xl">
 
-      <div class="">
+      <div class="poll-list">
         <h4 class="text-3xl text-center m-2">{{poll.name}}</h4>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/response/{{poll.id}}">View poll</a></button>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}"><a href="/results/{{poll.id}}">Results</a></button>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" data-id="{{project.id}}">DELETE</button>
+        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/response/{{poll.id}}">View poll</a></button>
+        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/results/{{poll.id}}">Results</a></button>
+        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" id="delete" data-id="{{poll.id}}">DELETE</button>
       </div>
 
     </div>
@@ -26,4 +26,5 @@
   {{/if}}
 </div>
 
+<script src="/js/dashboard.js"></script>
 <script src="/js/logout.js"></script>

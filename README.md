@@ -39,15 +39,11 @@ Collaborators:
 
 Third-Party APIs:
 
-[Flight Tracker API by AirLabs](https://airlabs.co/docs/flights)
-
-[Bing Maps API](https://learn.microsoft.com/en-us/bingmaps/v8-web-control/?toc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2Fbingmaps%2Fv8-web-control%2Ftoc.json&bc=https%3A%2F%2Flearn.microsoft.com%2Fen-us%2FBingMaps%2Fbreadcrumb%2Ftoc.json)
-
-[Bing Maps Routes API](https://learn.microsoft.com/en-us/bingmaps/rest-services/routes/)
+[Charts.js](https://www.chartjs.org/)
 
 CSS Framework:
 
-[Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+[Tailwind v3.3.3](https://tailwindcss.com/)
 
 Fonts:
 
@@ -76,6 +72,4 @@ SOFTWARE.
 
 ## Tests
 
-Choose a flight from the [FlightAware Live](https://flightaware.com/live/) page and enter an address to test the application!
-
-[Link to deployed page (ARV)](https://cameronhack.github.io/ARV/)
+[Test it out here!](https://votewave-6fb23b052402.herokuapp.com/)

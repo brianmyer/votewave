@@ -39,3 +39,6 @@ async function responseHandler (event) {
 
 let responseGroup = document.querySelector('.response-group')
 responseGroup.addEventListener('click', responseHandler)
+
+let finishedBtn = document.querySelector('#finished')
+finishedBtn.addEventListener('click', () => document.location.replace(`/`))
