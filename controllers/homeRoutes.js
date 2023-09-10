@@ -125,19 +125,16 @@ router.get('/results/:id', async (req, res) => {
       
       GROUP BY question_id, index_number
       ORDER BY question_id; `)
+      //pull poll Id from the url
     const pollId = req.params.id
-    const filteredResults = results.filter(result => result.question_id === pollData.questions[0].id)
-
-    const result = {
-      pollData: pollResult,
-      countedResults: results
-    };
-
+  
+    //transforming data from query to send to handlebars
     const resultViewModel = {
       name: pollData.name,
       description: pollData.description,
       questions: pollData.questions.map(question => ({
         text: question.text,
+        //check if there is a response before sending to the object. this should be refactored to an array later.
         response1: question.response1 ? { text: question.response1, count: 0} : null,
         response2: question.response2 ? { text: question.response2, count: 0} : null,
         response3: question.response3 ? { text: question.response3, count: 0} : null,
@@ -149,7 +146,7 @@ router.get('/results/:id', async (req, res) => {
     }
 
     const pollResults = results.filter(x => x.poll_id === +pollId)
-
+// loop over each response to find the count per index number
     for(let answerCount of pollResults) {
       let question = resultViewModel.questions.find(x => x.id === answerCount.question_id)
       let response = question['response' + answerCount.index_number]
@@ -157,8 +154,6 @@ router.get('/results/:id', async (req, res) => {
     }
 
 
-
-    console.log(resultViewModel)
     res.render('results', {
       ...resultViewModel,
       logged_in: req.session.logged_in
