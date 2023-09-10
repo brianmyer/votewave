@@ -11,24 +11,6 @@
 
     {{#each questions as |poll|}} 
 
-    <h3 class="font-main text-2xl text-center my-4 mt-12">{{poll.text}}</h3>
-
-    <p class="font-secondary text-xl text-center my-2">{{poll.response1.text}}: {{poll.response1.count}} </p>
-
-    <p class="font-secondary text-xl text-center my-2">{{poll.response2.text}}: {{poll.response2.count}} </p>
-
-    {{#if poll.response3}}
-    <p class="font-secondary text-xl text-center my-2">{{poll.response3.text}}: {{poll.response3.count}} </p>
-    {{/if}}
-
-    {{#if poll.response4}}
-    <p class="font-secondary text-xl text-center my-2">{{poll.response4.text}}: {{poll.response4.count}} </p>
-    {{/if}}
-
-    {{#if poll.response5}}
-    <p class="font-secondary text-xl text-center my-2">{{poll.response5.text}}: {{poll.response5.count}} </p>
-    {{/if}}
-
     {{!-- chart --}}
     <div class="py-8">
         <canvas id="chart{{poll.id}}"></canvas>
@@ -56,23 +38,34 @@
                     grid: {
                         display: false,
                     },
-
                     ticks: {
                         font: {
-                            size: 22,
+                            size: 20,
                             family: 'Inter',
                         },
                         color: 'black',
                     },
                 },
                 y: {
-                    display: false,
+                    beginAtZero: true,
                 }
             },
             plugins: {
+
+                title: {
+                display: true,
+                text: "{{poll.text}}",
+                font: {
+                    size: 32,
+                    family: 'Syne',
+                },
+                color: 'black'
+                },
+
                 legend: {
                     display: false,
                 },
+
             },
         }
         });

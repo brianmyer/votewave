@@ -599,11 +599,6 @@ video {
   margin-right: auto;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -649,14 +644,6 @@ video {
   height: 10rem;
 }
 
-.h-1\/2 {
-  height: 50%;
-}
-
-.h-64 {
-  height: 16rem;
-}
-
 .w-1\/2 {
   width: 50%;
 }
@@ -699,10 +686,6 @@ video {
 
 .rounded-lg {
   border-radius: 0.5rem;
-}
-
-.border {
-  border-width: 1px;
 }
 
 .bg-green-400 {
@@ -773,11 +756,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .py-8 {
