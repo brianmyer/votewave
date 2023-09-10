@@ -2,31 +2,31 @@
 
 <div>
 
-    <h3>{{pollData.name}}</h3>
-    <h4>{{pollData.description}}</h4>
-    {{#each pollData.questions as |poll|}} 
+  <h3>{{name}}</h3>
+    <h4>{{description}}</h4>
+    {{#each questions as |poll|}} 
     <p>{{poll.text}} - Results:</p>
-    <p>{{poll.response1}}: {{countedResults.[0].countPerIndex}} </p>
+    <p>{{poll.response1.text}}: {{poll.response1.count}} </p>
 
-    <p>{{poll.response2}}: {{countedResults.[1].countPerIndex}} </p>
+    <p>{{poll.response2.text}}: {{poll.response2.count}} </p>
 
     {{#if poll.response3}}
-    <p>{{poll.response3}}: {{countedResults.[2].countPerIndex}} </p>
+    <p>{{poll.response3.text}}: {{poll.response3.count}} </p>
     {{/if}}
 
     {{#if poll.response4}}
-    <p>{{poll.response4}}: {{countedResults.[3].countPerIndex}} </p>
+    <p>{{poll.response4.text}}: {{poll.response4.count}} </p>
     {{/if}}
 
     {{#if poll.response5}}
-    <p>{{poll.response5}}: {{countedResults.[4].countPerIndex}} </p>
+    <p>{{poll.response5.text}}: {{poll.response5.count}} </p>
     {{/if}}
 {{/each}}
 
 
     <div id="poll-{{id}} column-chart"></div>
     <div id="poll-{{id}} donut-chart"></div>
-    <p>Poll created by {{pollData.user.name}} </p>
+    <p>Poll created by {{user.name}} </p>
 </div>
 
 <script src="/js/results.js"></script>

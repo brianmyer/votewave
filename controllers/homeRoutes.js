@@ -114,7 +114,7 @@ router.get('/results/:id', async (req, res) => {
   try {
     const pollData = await Poll.findOne({
       where: { id: req.params.id },
-      include: [{ model: Question, include: [{ model: Response }] }, { model: User }
+      include: [{ model: Question, include: [{ model: Response }] }, {model: User}
       ]
     });
     const pollResult = pollData.get({ plain: true });
@@ -124,17 +124,38 @@ router.get('/results/:id', async (req, res) => {
       inner join question on question.id = response.question_id
       
       GROUP BY question_id, index_number
-      ORDER BY poll_id; `)
-    
-    const filteredResults = results.filter(result => result.question_id === pollData.questions[0].id)
+      ORDER BY question_id; `)
+      //pull poll Id from the url
+    const pollId = req.params.id
+  
+    //transforming data from query to send to handlebars
+    const resultViewModel = {
+      name: pollData.name,
+      description: pollData.description,
+      questions: pollData.questions.map(question => ({
+        text: question.text,
+        //check if there is a response before sending to the object. this should be refactored to an array later.
+        response1: question.response1 ? { text: question.response1, count: 0} : null,
+        response2: question.response2 ? { text: question.response2, count: 0} : null,
+        response3: question.response3 ? { text: question.response3, count: 0} : null,
+        response4: question.response4 ? { text: question.response4, count: 0} : null,
+        response5: question.response5 ? { text: question.response5, count: 0} : null,
+        id: question.id
+      })),
+      user: pollData.user.name
+    }
 
-    const result = {
-      pollData: pollResult,
-      countedResults: filteredResults
-    };
-    console.log(result)
+    const pollResults = results.filter(x => x.poll_id === +pollId)
+// loop over each response to find the count per index number
+    for(let answerCount of pollResults) {
+      let question = resultViewModel.questions.find(x => x.id === answerCount.question_id)
+      let response = question['response' + answerCount.index_number]
+      response.count = answerCount.countPerIndex
+    }
+
+
     res.render('results', {
-      ...result,
+      ...resultViewModel,
       logged_in: req.session.logged_in
     });
   } catch (err) {
