@@ -1,38 +1,85 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <h2 class="font-main text-4xl text-center m-8">Results</h2>
 
 <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
 
     <h3 class="font-main text-4xl text-center my-4">{{name}}</h3>
 
-    <h4 class="font-main text-xl text-center my-4">{{description}}</h4>
+    <h4 class="font-secondary text-xl text-center my-4">{{description}}</h4>
+
 
     {{#each questions as |poll|}} 
 
-    <h3 class="font-main text-2xl text-center my-4 mt-12">{{poll.text}} - Results:</h3>
+    <h3 class="font-main text-2xl text-center my-4 mt-12">{{poll.text}}</h3>
 
-    <p class="font-main text-xl text-center my-2">{{poll.response1.text}}: {{poll.response1.count}} </p>
+    <p class="font-secondary text-xl text-center my-2">{{poll.response1.text}}: {{poll.response1.count}} </p>
 
-    <p class="font-main text-xl text-center my-2">{{poll.response2.text}}: {{poll.response2.count}} </p>
+    <p class="font-secondary text-xl text-center my-2">{{poll.response2.text}}: {{poll.response2.count}} </p>
 
     {{#if poll.response3}}
-    <p class="font-main text-xl text-center my-2">{{poll.response3.text}}: {{poll.response3.count}} </p>
+    <p class="font-secondary text-xl text-center my-2">{{poll.response3.text}}: {{poll.response3.count}} </p>
     {{/if}}
 
     {{#if poll.response4}}
-    <p class="font-main text-xl text-center my-2">{{poll.response4.text}}: {{poll.response4.count}} </p>
+    <p class="font-secondary text-xl text-center my-2">{{poll.response4.text}}: {{poll.response4.count}} </p>
     {{/if}}
 
     {{#if poll.response5}}
-    <p class="font-main text-xl text-center my-2">{{poll.response5.text}}: {{poll.response5.count}} </p>
+    <p class="font-secondary text-xl text-center my-2">{{poll.response5.text}}: {{poll.response5.count}} </p>
     {{/if}}
 
+    {{!-- chart --}}
+    <div class="py-8">
+        <canvas id="chart{{poll.id}}"></canvas>
+    </div>
+    <script>
+        new Chart(document.querySelector("#chart{{poll.id}}"), {
+        type: 'bar',
+        data: {
+            labels: ["{{poll.response1.text}}", "{{poll.response2.text}}" {{#if poll.response3}},"{{poll.response3.text}}"{{/if}} {{#if poll.response4}},"{{poll.response4.text}}"{{/if}} {{#if poll.response5}},"{{poll.response5.text}}"{{/if}}],
+            datasets: [{
+            label: '# of Votes',
+            data: ["{{poll.response1.count}}", "{{poll.response2.count}}", "{{poll.response3.count}}", "{{poll.response4.count}}", "{{poll.response5.count}}"],
+            backgroundColor: [
+                '#00a2ff',
+            ],
+            hoverBackgroundColor: [
+                '#1800ff',
+            ],
+            borderWidth: 0
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                    },
+
+                    ticks: {
+                        font: {
+                            size: 22,
+                            family: 'Inter',
+                        },
+                        color: 'black',
+                    },
+                },
+                y: {
+                    display: false,
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
+        }
+        });
+    </script>
+    {{!-- <script src="/js/results.js"></script> --}}
     {{/each}}
 
-    {{!-- charts --}}
-    <div id="poll-{{id}} column-chart"></div>
-    <div id="poll-{{id}} donut-chart"></div>
-
+    
     <p class="font-secondary text-end text-lg text-gray-600">Poll created by {{user}} </p>
 </div>
-
-<script src="/js/results.js"></script>
