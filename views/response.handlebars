@@ -1,10 +1,10 @@
-<div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">  
+<div class=" response-group md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">  
     
     {{#each questions as |question|}}
 
         <h2 class="font-main text-2xl text-center m-6">{{question.text}}</h2>
 
-        <div class="response-group flex flex-col justify-center items-center" >
+        <div class=" flex flex-col justify-center items-center" >
 
             {{#if question.response1}}
                 <button class="font-secondary py-4 m-2 w-full rounded-lg bg-opacity-50 bg-secondary hover:bg-primary text-light-1 transition-all" data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>

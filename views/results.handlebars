@@ -2,33 +2,37 @@
 
 <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
 
-    <h3 class="font-main text-4xl text-center my-4">{{pollData.name}}</h3>
+    <h3 class="font-main text-4xl text-center my-4">{{name}}</h3>
 
-    <h4 class="font-main text-xl text-center my-4">{{pollData.description}}</h4>
+    <h4 class="font-main text-xl text-center my-4">{{description}}</h4>
 
-    <h3 class="font-main text-2xl text-center my-4 mt-12">{{pollData.questions.[0].text}} -Question Results-</h3>
+    {{#each questions as |poll|}} 
 
-    <p class="font-main text-xl text-center my-2">{{pollData.questions.[0].response1}}: {{countedResults.[0].CountPerIndex}} </p>
+    <h3 class="font-main text-2xl text-center my-4 mt-12">{{poll.text}} - Results:</h3>
 
-    <p class="font-main text-xl text-center my-2">{{pollData.questions.[0].response2}}: {{countedResults.[1].CountPerIndex}} </p>
+    <p class="font-main text-xl text-center my-2">{{poll.response1.text}}: {{poll.response1.count}} </p>
 
-    {{#if pollData.questions.[0].response3}}
-    <p class="font-main text-xl text-center my-2">{{pollData.questions.[0].response3}}: {{countedResults.[2].CountPerIndex}} </p>
+    <p class="font-main text-xl text-center my-2">{{poll.response2.text}}: {{poll.response2.count}} </p>
+
+    {{#if poll.response3}}
+    <p class="font-main text-xl text-center my-2">{{poll.response3.text}}: {{poll.response3.count}} </p>
     {{/if}}
 
-    {{#if pollData.questions.[0].response4}}
-    <p class="font-main text-xl text-center my-2">{{pollData.questions.[0].response4}}: {{countedResults.[3].CountPerIndex}} </p>
+    {{#if poll.response4}}
+    <p class="font-main text-xl text-center my-2">{{poll.response4.text}}: {{poll.response4.count}} </p>
     {{/if}}
 
-    {{#if pollData.questions.[0].response5}}
-    <p class="font-main text-xl text-center my-2">{{pollData.questions.[0].response5}}: {{countedResults.[4].CountPerIndex}} </p>
+    {{#if poll.response5}}
+    <p class="font-main text-xl text-center my-2">{{poll.response5.text}}: {{poll.response5.count}} </p>
     {{/if}}
+
+    {{/each}}
 
     {{!-- charts --}}
     <div id="poll-{{id}} column-chart"></div>
     <div id="poll-{{id}} donut-chart"></div>
 
-    <p class="font-secondary text-end text-lg text-gray-600">Poll created by {{pollData.user.name}} </p>
+    <p class="font-secondary text-end text-lg text-gray-600">Poll created by {{user}} </p>
 </div>
 
 <script src="/js/results.js"></script>
