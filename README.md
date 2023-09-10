@@ -47,7 +47,7 @@ Third-Party APIs:
 
 CSS Framework:
 
-[Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+[Tailwind v3.3.3](https://tailwindcss.com/)
 
 Fonts:
 
