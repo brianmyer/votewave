@@ -17,8 +17,8 @@
 
       <h4 class="font-main text-3xl text-center m-2">{{poll.name}}</h4>
       <div class="flex justify-center  mt-8">
-        <button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all" data-id="{{project.id}}"><a href="/response/{{poll.id}}">View poll</a></button>
-        <button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all" data-id="{{project.id}}"><a href="/results/{{poll.id}}">Results</a></button>
+        <a href="/response/{{poll.id}}"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all" data-id="{{project.id}}">View poll</button></a>
+        <a href="/results/{{poll.id}}"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all" data-id="{{project.id}}">Results</button></a>
         <button class="delete-post font-secondary py-2 px-6 m-2 rounded-lg bg-red-400 hover:bg-red-600 text-light-1 transition-all" data-id="{{poll.id}}">DELETE</button>
       </div>
 
