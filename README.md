@@ -52,6 +52,8 @@ Other Technologies:
 
 [Heroku](https://id.heroku.com/login)
 
+[Google Fonts](https://developers.google.com/fonts)
+
 
 ## License
 
