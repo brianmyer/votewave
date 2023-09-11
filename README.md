@@ -19,13 +19,14 @@ N/A
 
 ## Usage
 
-(insert screenshot here)
+![Alt text](<public/images/Screenshot 2023-09-11 at 9.57.20 AM.png>)
 
 If you wish to create your own poll, simply sign up or log in with your credentials and click the "Create a poll" link. Then, you are prompted to provide a name and brief description of your poll before then providing the question and up to five possible responses. Once your poll has been created, you'll be redirected to your dashboard where all of your current polls are displayed.
 
 Have a link to a poll you'd like to contribute to? Follow the link to navigate to that poll's question and responses, provide your answer, and then you're done! Results are available to view once you are finished.
 
-(more screenshots?)
+![Alt text](<public/images/Screenshot 2023-09-11 at 9.56.53 AM.png>)
+![Alt text](<public/images/Screenshot 2023-09-11 at 9.57.00 AM.png>)
 
 ## Credits
 
@@ -45,9 +46,11 @@ CSS Framework:
 
 [Tailwind v3.3.3](https://tailwindcss.com/)
 
-Fonts:
+Other Technologies:
 
-[Skyfont](https://www.1001fonts.com/skyfont-font.html)
+[Handlebars](https://handlebarsjs.com/)
+
+[Heroku](https://id.heroku.com/login)
 
 
 ## License
