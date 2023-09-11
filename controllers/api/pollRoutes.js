@@ -57,14 +57,13 @@ router.delete('/:id', withAuth, async (req, res) => {
       },
     });
 
-    if (!projectData) {
+    if (!pollData) {
       res.status(404).json({ message: 'No poll found with this id!' });
       return;
     }
 
     res.status(200).json(pollData);
   } catch (err) {
-   
     res.status(500).json(err);
   }
 });

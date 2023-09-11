@@ -1,23 +1,21 @@
-<div class="md:container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 md:rounded-3xl">
-  <h2 class="text-3xl text-center m-2">Latest Polls</h2>
+<h2 class="font-main text-4xl text-center m-8">Latest Polls</h2>
 
-  {{#each polls as |poll| }}
+{{#each polls as |poll| }}
 
-    <div class="container w-3/4 p-4 m-8 mx-auto bg-gray-400 rounded-3xl">
+  <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
 
-      <section>
+    <section>
 
-        <h3 class="text-2xl text-center m-2"><a href="/response/{{poll.id}}">{{poll.name}}</a></h3>
+      <h3 class="font-main text-2xl text-center m-2"><a href="/response/{{poll.id}}">{{poll.name}}</a></h3>
 
-        <div id="poll-{{poll.id}}"></div>
+      <div id="poll-{{poll.id}}"></div>
 
-        <p class="text-end text-gray-300">Poll created by {{poll.user.name}} </p>
-        <a href="/results/{{poll.id}}">Results</a>
+        <a href="/response/{{poll.id}}"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all">View Poll</button></a>
+        <a href="/results/{{poll.id}}"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all">Results</button></a>
+        <p class="font-secondary text-end text-lg text-gray-600">Poll created by {{poll.user.name}} </p>
 
-      </section>
+    </section>
 
-    </div>
+  </div>
 
-  {{/each}}
-  <!-- Limit to 4 or 5? -->
-</div>
+{{/each}}

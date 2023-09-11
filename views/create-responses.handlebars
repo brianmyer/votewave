@@ -1,28 +1,27 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <div>
-    <h3>Create the poll question:</h3>
+  <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
+    <h2 class="font-main text-3xl text-center m-2">Create the poll question</h2>
 
     <form class="form new-question-form">
 
       <div class="form-group">
-        <label for="question-text">Question:</label>
-        <input class="form-input" id="question-text" name="question-text" placeholder="Question text" />
+        <input class="form-input font-secondary text-center p-2 m-2 w-full focus:outline-none rounded-lg bg-light-1" id="question-text" name="question-text" placeholder="Question" />
       </div>
 
-      <div class="form-group" id="responses">
-        <p>Please add up to 5 possible responses:</p>
-        <input type="text" name="response1" id="response1" placeholder="Response">
-        <input type="text" name="response2" id="response2" placeholder="Response">
-        <input type="text" name="response3" id="response3" placeholder="Response">
-        <input type="text" name="response4" id="response4" placeholder="Response">
-        <input type="text" name="response5" id="response5" placeholder="Response">
+      <h3 class="font-main text-2xl text-center m-2 mt-12">Please add up to 5 possible responses</h3>
+
+      <div class="form-group flex flex-col justify-center" id="responses">
+        <input class="font-secondary text-center p-2 m-2 focus:outline-none rounded-lg bg-light-1" type="text" name="response1" id="response1" placeholder="Response">
+        <input class="font-secondary text-center p-2 m-2 focus:outline-none rounded-lg bg-light-1" type="text" name="response2" id="response2" placeholder="Response">
+        <input class="font-secondary text-center p-2 m-2 focus:outline-none rounded-lg bg-light-1" type="text" name="response3" id="response3" placeholder="Response">
+        <input class="font-secondary text-center p-2 m-2 focus:outline-none rounded-lg bg-light-1" type="text" name="response4" id="response4" placeholder="Response">
+        <input class="font-secondary text-center p-2 m-2 focus:outline-none rounded-lg bg-light-1" type="text" name="response5" id="response5" placeholder="Response">
       </div>
 
-        <button type="submit" class="btn btn-primary">Create another question</button>
+        <button type="submit" class="font-secondary py-2 px-6 m-4 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all">Create another question</button>
         
     </form>
-    <button type="submit" class="btn btn-primary im-done">I'm done!</button>
+    <button type="submit" class="font-secondary py-2 px-6 m-4 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all im-done">I'm done!</button>
   </div>
 </div>
 

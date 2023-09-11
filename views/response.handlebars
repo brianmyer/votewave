@@ -1,35 +1,37 @@
-<div class=" response-group md:container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 md:rounded-3xl">  
+<div class=" response-group md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">  
     
     {{#each questions as |question|}}
 
-        <h2 class="text-2xl text-center m-6">{{question.text}}</h2>
+        <h2 class="font-main text-2xl text-center m-6">{{question.text}}</h2>
 
         <div class=" flex flex-col justify-center items-center" >
 
             {{#if question.response1}}
-                <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>
+                <button class="font-secondary py-4 m-2 w-full rounded-lg bg-opacity-50 bg-secondary hover:bg-primary text-light-1 transition-all" data-index="1" data-question='{{question.id}}'>{{question.response1}}</button>
             {{/if}}
 
             {{#if question.response2}}
-                <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="2" data-question='{{question.id}}'>{{question.response2}}</button>
+                <button class="font-secondary py-4 m-2 w-full rounded-lg bg-opacity-50 bg-secondary hover:bg-primary text-light-1 transition-all" data-index="2" data-question='{{question.id}}'>{{question.response2}}</button>
             {{/if}}
 
             {{#if question.response3}}
-                <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="3" data-question='{{question.id}}'>{{question.response3}}</button>
+                <button class="font-secondary py-4 m-2 w-full rounded-lg bg-opacity-50 bg-secondary hover:bg-primary text-light-1 transition-all" data-index="3" data-question='{{question.id}}'>{{question.response3}}</button>
             {{/if}}
 
             {{#if question.response4}}
-                <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="4" data-question='{{question.id}}'>{{question.response4}}</button>
+                <button class="font-secondary py-4 m-2 w-full rounded-lg bg-opacity-50 bg-secondary hover:bg-primary text-light-1 transition-all" data-index="4" data-question='{{question.id}}'>{{question.response4}}</button>
             {{/if}}
 
             {{#if question.response5}}
-                <button class="p-4 m-2 w-full rounded-lg bg-blue-200 hover:bg-blue-300" data-index="5" data-question='{{question.id}}'>{{question.response5}}</button>
+                <button class="font-secondary py-4 m-2 w-full rounded-lg bg-opacity-50 bg-secondary hover:bg-primary text-light-1 transition-all" data-index="5" data-question='{{question.id}}'>{{question.response5}}</button>
             {{/if}}
 
 
         </div>
     {{/each}}
-        <button class="p-4 m-2 w-half rounded-lg bg-blue-200 hover:bg-blue-300" id="finished">Finished</button>
+
+    <button class="font-secondary py-2 px-6 my-8 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all"><a href="/results/{{id}}">Finished</a></button>
+
 </div>
 
 

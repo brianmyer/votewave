@@ -1,30 +1,31 @@
-<button class="p-2 m-4 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/create-poll">Create a new poll</a></button>
 
-<h1 class="text-1xl m-2">Welcome back, {{name}}!</h1>
+<div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
+  <h2 class="ont-main text-3xl text-center m-2">Welcome back, {{name}}!</h2>
 
-<button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" id="logout-button">Logout</button>
-
-<div class="md:container 2xl:w-1/2 xl:w-3/4 p-4 m-8 mx-auto bg-gray-500 md:rounded-3xl">
+  <div class="flex justify-center mt-8">
+    <a href="/create-poll"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all">Create a new poll</button></a>
+    <button class="font-secondary py-2 px-6 m-2 rounded-lg bg-red-400 hover:bg-red-600 text-light-1 transition-all" id="logout-button">Logout</button>
+  </div>
+</div>
 
   {{#if polls.length}}
   <div >
-    <h3 class="text-3xl text-center m-2">Your polls</h3>
+    <h3 class="font-main text-3xl text-center m-2">Your polls</h3>
 
     {{#each polls as |poll|}}
-    <div class="container w-3/4 p-4 m-8 mx-auto bg-gray-400 rounded-3xl">
+    <div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
 
-      <div class="poll-list">
-        <h4 class="text-3xl text-center m-2">{{poll.name}}</h4>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/response/{{poll.id}}">View poll</a></button>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200"><a href="/results/{{poll.id}}">Results</a></button>
-        <button class="p-2 m-2 border-2 rounded-lg bg-red-200 hover:bg-green-200" id="delete" data-id="{{poll.id}}">DELETE</button>
+      <h4 class="font-main text-3xl text-center m-2">{{poll.name}}</h4>
+      <div class="flex justify-center  mt-8">
+        <a href="/response/{{poll.id}}"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all" data-id="{{project.id}}">View poll</button></a>
+        <a href="/results/{{poll.id}}"><button class="font-secondary py-2 px-6 m-2 rounded-lg bg-secondary hover:bg-primary text-light-1 transition-all" data-id="{{project.id}}">Results</button></a>
+        <button class="delete-post font-secondary py-2 px-6 m-2 rounded-lg bg-red-400 hover:bg-red-600 text-light-1 transition-all" data-id="{{poll.id}}">DELETE</button>
       </div>
 
     </div>
     {{/each}}
   </div>
   {{/if}}
-</div>
 
 <script src="/js/dashboard.js"></script>
 <script src="/js/logout.js"></script>

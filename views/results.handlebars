@@ -1,32 +1,78 @@
-<h2>Results</h2>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<div>
+<h2 class="font-main text-4xl text-center m-8">Results</h2>
 
-  <h3>{{name}}</h3>
-    <h4>{{description}}</h4>
+<div class="md:container 2xl:w-1/2 xl:w-3/4 p-8 m-8 mx-auto bg-light-2 drop-shadow-sm md:rounded-3xl">
+
+    <h3 class="font-main text-4xl text-center my-4">{{name}}</h3>
+
+    <h4 class="font-secondary text-xl text-center my-4">{{description}}</h4>
+
+
     {{#each questions as |poll|}} 
-    <p>{{poll.text}} - Results:</p>
-    <p>{{poll.response1.text}}: {{poll.response1.count}} </p>
 
-    <p>{{poll.response2.text}}: {{poll.response2.count}} </p>
+    {{!-- chart --}}
+    <div class="py-8">
+        <canvas id="chart{{poll.id}}"></canvas>
+    </div>
+    <script>
+        new Chart(document.querySelector("#chart{{poll.id}}"), {
+        type: 'bar',
+        data: {
+            labels: ["{{poll.response1.text}}", "{{poll.response2.text}}" {{#if poll.response3}},"{{poll.response3.text}}"{{/if}} {{#if poll.response4}},"{{poll.response4.text}}"{{/if}} {{#if poll.response5}},"{{poll.response5.text}}"{{/if}}],
+            datasets: [{
+            label: '# of Votes',
+            data: ["{{poll.response1.count}}", "{{poll.response2.count}}", "{{poll.response3.count}}", "{{poll.response4.count}}", "{{poll.response5.count}}"],
+            backgroundColor: [
+                '#00a2ff',
+            ],
+            hoverBackgroundColor: [
+                '#1800ff',
+            ],
+            borderWidth: 0
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    grid: {
+                        display: false,
+                    },
+                    ticks: {
+                        font: {
+                            size: 20,
+                            family: 'Inter',
+                        },
+                        color: 'black',
+                    },
+                },
+                y: {
+                    beginAtZero: true,
+                }
+            },
+            plugins: {
 
-    {{#if poll.response3}}
-    <p>{{poll.response3.text}}: {{poll.response3.count}} </p>
-    {{/if}}
+                title: {
+                display: true,
+                text: "{{poll.text}}",
+                font: {
+                    size: 32,
+                    family: 'Syne',
+                },
+                color: 'black'
+                },
 
-    {{#if poll.response4}}
-    <p>{{poll.response4.text}}: {{poll.response4.count}} </p>
-    {{/if}}
+                legend: {
+                    display: false,
+                },
 
-    {{#if poll.response5}}
-    <p>{{poll.response5.text}}: {{poll.response5.count}} </p>
-    {{/if}}
-{{/each}}
+            },
+        }
+        });
+    </script>
+    {{!-- <script src="/js/results.js"></script> --}}
+    {{/each}}
 
-
-    <div id="poll-{{id}} column-chart"></div>
-    <div id="poll-{{id}} donut-chart"></div>
-    <p>Poll created by {{user}} </p>
+    
+    <p class="font-secondary text-end text-lg text-gray-600">Poll created by {{user}} </p>
 </div>
-
-<script src="/js/results.js"></script>
